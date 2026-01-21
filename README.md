@@ -774,7 +774,16 @@ tail -f logs/app.log
 - **Issues:** Create an issue on GitHub
 - **Email:** y22cs029@rvrjc.ac.in
 
+---
+### Project Maintainers
 
+- Daggubati Venkata Supraja
+- Mallika
+- Rajesh
+- Durgesh
+- Mumuksh
+- 
+---
 
 ### Reporting Issues
 

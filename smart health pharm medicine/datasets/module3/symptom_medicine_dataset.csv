@@ -1,0 +1,121 @@
+symptom_id,symptom_name,severity,duration_days,possible_condition,otc_medicine,medicine_type,dosage_info,doctor_consult,notes
+1,Fever,Mild,1,Viral Fever,Paracetamol,Tablet,After food,No,Drink fluids and rest
+2,Fever,Moderate,3,Infection,Paracetamol,Tablet,After food,Yes,Consult doctor if persists
+3,Headache,Mild,1,Stress,Paracetamol,Tablet,After food,No,Avoid screen time
+4,Headache,Moderate,2,Migraine,Ibuprofen,Tablet,After food,Yes,Do not overdose
+5,Cough,Mild,2,Common Cold,Cough Syrup,Syrup,Twice daily,No,Steam inhalation advised
+6,Cough,Moderate,4,Bronchitis,Expectorant,Syrup,Twice daily,Yes,Consult physician
+7,Cold,Mild,2,Allergy,Antihistamine,Tablet,Once daily,No,Avoid allergens
+8,Cold,Moderate,3,Sinusitis,Antihistamine,Tablet,Once daily,Yes,Medical advice required
+9,Stomach Pain,Mild,1,Indigestion,Antacid,Tablet,Before meals,No,Avoid spicy food
+10,Stomach Pain,Moderate,3,Gastritis,Omeprazole,Capsule,Before breakfast,Yes,Doctor visit suggested
+11,Diarrhea,Mild,1,Food Poisoning,ORS,Solution,After each loose motion,No,Stay hydrated
+12,Diarrhea,Moderate,2,Infection,ORS,Solution,After each loose motion,Yes,Medical supervision needed
+13,Sore Throat,Mild,2,Viral Infection,Lozenges,Tablet,As needed,No,Warm salt water gargle
+14,Sore Throat,Moderate,4,Bacterial Infection,Lozenges,Tablet,As needed,Yes,Antibiotics only by doctor
+15,Body Pain,Mild,1,Muscle Strain,Paracetamol,Tablet,After food,No,Rest and hydration
+16,Body Pain,Moderate,3,Viral Fever,Ibuprofen,Tablet,After food,Yes,Do not mix medicines
+17,Nausea,Mild,1,Motion Sickness,Antiemetic,Tablet,Before travel,No,Avoid heavy food
+18,Nausea,Moderate,2,Gastric Issue,Antiemetic,Tablet,Before meals,Yes,Medical advice required
+19,Dizziness,Mild,1,Dehydration,ORS,Solution,Small sips,No,Increase water intake
+20,Dizziness,Moderate,2,Low BP,ORS,Solution,Small sips,Yes,Monitor blood pressure
+21,Eye Irritation,Mild,3,Dry Eyes,Lubricating Drops,Drops,3 times daily,No,Avoid screen glare
+22,Gas,Mild,3,Bloating,Simethicone,Tablet,After meals,No,Avoid carbonated drinks
+23,Ear Pain,Moderate,5,Ear Infection,Warm Compress,Home Care,As needed,Yes,Consult ENT if discharge
+24,Joint Pain,Moderate,1,Inflammation,Ibuprofen,Tablet,After food,No,Rest affected joint
+25,Body Ache,Mild,2,Muscle Strain,Ibuprofen,Tablet,After food,No,Rest and hydration
+26,Nosebleed,Moderate,5,Dry Nose,Saline Drops,Drops,As needed,Yes,Pinch nose gently
+27,Minor Cut,Moderate,6,Skin Injury,Antiseptic Cream,Ointment,Apply twice daily,Yes,Keep wound covered
+28,Insomnia,Mild,3,Stress,Melatonin,Tablet,At bedtime,No,Limit caffeine
+29,Sore Muscles,Moderate,1,Post Workout Pain,Diclofenac Gel,Gel,Apply twice daily,No,Stretch lightly
+30,Dizziness,Moderate,3,Low BP,ORS,Solution,Sip slowly,No,Stand up slowly
+31,Sore Muscles,Mild,3,Post Workout Pain,Diclofenac Gel,Gel,Apply twice daily,No,Stretch lightly
+32,Loss of Appetite,Mild,3,Digestive Upset,Probiotic,Capsule,Once daily,No,Small frequent meals
+33,Toothache,Mild,3,Dental Cavity,Clove Oil,Drops,Apply locally,No,Visit dentist if severe
+34,Slight Fever,Moderate,6,Seasonal Flu,Paracetamol,Tablet,After food,Yes,Check temperature
+35,Mild Allergy,Moderate,4,Seasonal Allergy,Cetirizine,Tablet,Once at night,Yes,Avoid pollen exposure
+36,Back Pain,Moderate,7,Posture Strain,Diclofenac Gel,Gel,Apply twice daily,Yes,Use hot compress
+37,Cracked Heels,Moderate,6,Dry Skin,Moisturizing Cream,Cream,Apply at night,Yes,Wear socks
+38,Acidity,Mild,2,Gastritis,Omeprazole,Capsule,Before breakfast,No,Avoid oily foods
+39,Dry Cough,Severe,7,Allergy/Cold,Cough Syrup,Syrup,Twice daily,Yes,Steam inhalation advised
+40,Allergic Swelling,Severe,4,Allergic Reaction,Antihistamine,Tablet,Once at night,Yes,Seek help if breathing issue
+41,Cracked Heels,Mild,3,Dry Skin,Moisturizing Cream,Cream,Apply at night,No,Wear socks
+42,Bruise,Moderate,6,Soft Tissue Injury,Heparin Gel,Gel,Apply twice daily,Yes,Ice pack for 10 min
+43,Stomach Pain,Moderate,2,Indigestion,Antacid,Tablet,After meals,No,Avoid heavy meals
+44,Chills,Severe,6,Viral Fever,Paracetamol,Tablet,After food,Yes,Keep warm
+45,Sunburn,Moderate,7,UV Exposure,Aloe Vera Gel,Gel,Apply as needed,Yes,Stay hydrated
+46,Constipation,Mild,1,Low Fiber Diet,Isabgol,Powder,At bedtime,No,Increase fiber intake
+47,Wheezing,Mild,1,Asthma/Allergy,Inhaler,Inhaler,As prescribed,No,Avoid triggers
+48,Sprain,Severe,5,Ligament Injury,Pain Relief Spray,Spray,Apply 3 times daily,Yes,Use crepe bandage
+49,Wheezing,Mild,3,Asthma/Allergy,Inhaler,Inhaler,As prescribed,No,Avoid triggers
+50,Swollen Gums,Severe,6,Gingivitis,Salt Water Gargle,Home Care,Twice daily,Yes,Maintain oral hygiene
+51,Mild Allergy,Mild,2,Seasonal Allergy,Cetirizine,Tablet,Once at night,No,Avoid pollen exposure
+52,Gas,Moderate,5,Bloating,Simethicone,Tablet,After meals,Yes,Avoid carbonated drinks
+53,Slight Fever,Moderate,4,Seasonal Flu,Paracetamol,Tablet,After food,Yes,Check temperature
+54,Bad Breath,Mild,2,Oral Hygiene,Mouthwash,Solution,Twice daily,No,Brush tongue gently
+55,Mild Wheeze,Mild,3,Allergy,Inhaler,Inhaler,As prescribed,No,Consult doctor if frequent
+56,Diarrhea,Severe,3,Gastroenteritis,ORS,Solution,After each loose stool,Yes,Avoid spicy foods
+57,Dizziness,Moderate,4,Low BP,ORS,Solution,Sip slowly,Yes,Stand up slowly
+58,Acidity,Mild,3,Gastritis,Omeprazole,Capsule,Before breakfast,No,Avoid oily foods
+59,Insect Bite,Moderate,5,Skin Reaction,Hydrocortisone Cream,Cream,Apply twice daily,Yes,Do not scratch
+60,Runny Nose,Moderate,1,Allergic Rhinitis,Cetirizine,Tablet,Once at night,No,Avoid allergens
+61,Chills,Moderate,3,Viral Fever,Paracetamol,Tablet,After food,No,Keep warm
+62,Eye Irritation,Mild,2,Dry Eyes,Lubricating Drops,Drops,3 times daily,No,Avoid screen glare
+63,Mild Allergy,Mild,3,Seasonal Allergy,Cetirizine,Tablet,Once at night,No,Avoid pollen exposure
+64,Slight Fever,Severe,7,Seasonal Flu,Paracetamol,Tablet,After food,Yes,Check temperature
+65,Mouth Ulcer,Moderate,1,Aphthous Ulcer,Mouth Ulcer Gel,Gel,Apply 2-3 times daily,No,Avoid spicy food
+66,Wet Cough,Moderate,5,Chest Congestion,Expectorant Syrup,Syrup,Twice daily,Yes,Drink warm fluids
+67,Minor Cut,Mild,3,Skin Injury,Antiseptic Cream,Ointment,Apply twice daily,No,Keep wound covered
+68,Dizziness,Moderate,7,Low BP,ORS,Solution,Sip slowly,Yes,Stand up slowly
+69,Sore Throat,Moderate,4,Throat Infection,Lozenges,Lozenge,Every 4 hours,Yes,Gargle warm salt water
+70,Sneezing,Mild,3,Allergy,Cetirizine,Tablet,Once at night,No,Wear mask in dust
+71,Shortness of Breath,Mild,2,Asthma Flare,Inhaler,Inhaler,As prescribed,Yes,Immediate consultation
+72,Back Pain,Mild,3,Posture Strain,Diclofenac Gel,Gel,Apply twice daily,No,Use hot compress
+73,Acidity,Severe,5,Gastritis,Omeprazole,Capsule,Before breakfast,Yes,Avoid oily foods
+74,Skin Rash,Mild,3,Allergy,Calamine Lotion,Lotion,Apply 3 times daily,No,Avoid scratching
+75,Fatigue,Mild,3,Vitamin Deficiency,Multivitamin,Tablet,Once daily,No,Sleep 7-8 hours
+76,Anxiety,Severe,5,Stress,Herbal Tea,Home Care,Evening,Yes,Practice breathing exercises
+77,Minor Cut,Moderate,4,Skin Injury,Antiseptic Cream,Ointment,Apply twice daily,Yes,Keep wound covered
+78,Dry Skin,Mild,3,Winter Dryness,Moisturizing Cream,Cream,Apply twice daily,No,Use mild soap
+79,Hoarseness,Mild,2,Voice Strain,Lozenges,Lozenge,Every 4 hours,No,Voice rest
+80,Allergic Swelling,Moderate,1,Allergic Reaction,Antihistamine,Tablet,Once at night,Yes,Seek help if breathing issue
+81,Stomach Pain,Moderate,1,Indigestion,Antacid,Tablet,After meals,No,Avoid heavy meals
+82,Allergic Swelling,Mild,1,Allergic Reaction,Antihistamine,Tablet,Once at night,Yes,Seek help if breathing issue
+83,Indigestion,Mild,2,Gastric Upset,Antacid,Tablet,After meals,No,Avoid fried food
+84,Sore Muscles,Moderate,2,Post Workout Pain,Diclofenac Gel,Gel,Apply twice daily,No,Stretch lightly
+85,Skin Rash,Moderate,5,Allergy,Calamine Lotion,Lotion,Apply 3 times daily,Yes,Avoid scratching
+86,Fungal Infection,Mild,3,Tinea,Clotrimazole Cream,Cream,Apply twice daily,No,Keep area dry
+87,Motion Sickness,Mild,1,Travel,Dimenhydrinate,Tablet,Before travel,No,Avoid heavy meals
+88,Sore Feet,Mild,3,Overuse,Pain Relief Spray,Spray,Apply twice daily,No,Elevate feet
+89,Insect Bite,Severe,3,Skin Reaction,Hydrocortisone Cream,Cream,Apply twice daily,Yes,Do not scratch
+90,Loss of Appetite,Moderate,1,Digestive Upset,Probiotic,Capsule,Once daily,No,Small frequent meals
+91,Stomach Pain,Mild,3,Indigestion,Antacid,Tablet,After meals,No,Avoid heavy meals
+92,Runny Nose,Severe,7,Allergic Rhinitis,Cetirizine,Tablet,Once at night,Yes,Avoid allergens
+93,Menstrual Cramps,Mild,3,Dysmenorrhea,Meftal Spas,Tablet,After food,No,Use hot water bag
+94,Athlete's Foot,Mild,3,Fungal Infection,Clotrimazole Cream,Cream,Apply twice daily,No,Change socks often
+95,Mild Acne,Mild,3,Blocked Pores,Benzoyl Peroxide Gel,Gel,Apply once daily,No,Use non-comedogenic wash
+96,Minor Burns,Mild,3,Thermal Burn,Burn Ointment,Ointment,Apply twice daily,No,Cool water first aid
+97,Constipation,Moderate,1,Low Fiber Diet,Isabgol,Powder,At bedtime,No,Increase fiber intake
+98,Diarrhea,Moderate,5,Gastroenteritis,ORS,Solution,After each loose stool,Yes,Avoid spicy foods
+99,Dizziness,Mild,3,Low BP,ORS,Solution,Sip slowly,No,Stand up slowly
+100,Back Pain,Severe,3,Posture Strain,Diclofenac Gel,Gel,Apply twice daily,Yes,Use hot compress
+101,Acidity,Moderate,2,Gastritis,Omeprazole,Capsule,Before breakfast,No,Avoid oily foods
+102,Bad Breath,Mild,3,Oral Hygiene,Mouthwash,Solution,Twice daily,No,Brush tongue gently
+103,Gas,Moderate,1,Bloating,Simethicone,Tablet,After meals,No,Avoid carbonated drinks
+104,Palpitations,Mild,3,Stress/Caffeine,No OTC,None,Avoid stimulants,Yes,Seek medical advice
+105,Bruise,Moderate,3,Soft Tissue Injury,Heparin Gel,Gel,Apply twice daily,No,Ice pack for 10 min
+106,Menstrual Cramps,Mild,2,Dysmenorrhea,Meftal Spas,Tablet,After food,No,Use hot water bag
+107,Wet Cough,Mild,3,Chest Congestion,Expectorant Syrup,Syrup,Twice daily,No,Drink warm fluids
+108,Toothache,Mild,2,Dental Cavity,Clove Oil,Drops,Apply locally,No,Visit dentist if severe
+109,Nosebleed,Mild,3,Dry Nose,Saline Drops,Drops,As needed,No,Pinch nose gently
+110,Acidity,Severe,3,Gastritis,Omeprazole,Capsule,Before breakfast,Yes,Avoid oily foods
+111,Throat Irritation,Mild,3,Dry Air,Cough Drops,Lozenge,As needed,No,Drink warm water
+112,Wet Cough,Moderate,7,Chest Congestion,Expectorant Syrup,Syrup,Twice daily,Yes,Drink warm fluids
+113,Runny Nose,Moderate,5,Allergic Rhinitis,Cetirizine,Tablet,Once at night,Yes,Avoid allergens
+114,Wet Cough,Severe,3,Chest Congestion,Expectorant Syrup,Syrup,Twice daily,Yes,Drink warm fluids
+115,Itching,Mild,1,Allergic Reaction,Cetirizine,Tablet,Once at night,No,Keep area clean
+116,Cold Sweats,Mild,3,Viral Infection,Paracetamol,Tablet,After food,No,Rest and monitor
+117,Bruise,Moderate,2,Soft Tissue Injury,Heparin Gel,Gel,Apply twice daily,No,Ice pack for 10 min
+118,Slight Fever,Moderate,3,Seasonal Flu,Paracetamol,Tablet,After food,No,Check temperature
+119,Diarrhea,Mild,3,Gastroenteritis,ORS,Solution,After each loose stool,No,Avoid spicy foods
+120,Skin Rash,Moderate,3,Allergy,Calamine Lotion,Lotion,Apply 3 times daily,No,Avoid scratching

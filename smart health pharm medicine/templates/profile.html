@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Health Profile</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    min-height:100vh;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    padding-top: 80px;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    padding:40px;
+    border-radius:16px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    animation:fadeIn 0.8s ease-in-out;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .card {
+    background: #2d2d2d;
+    color: #e0e0e0;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+h2{
+    text-align:center;
+    color:#6366f1;
+    margin-bottom:30px;
+    font-size: 28px;
+}
+
+body.dark-mode h2 {
+    color: #a78bfa;
+}
+
+/* WELCOME SECTION */
+.welcome-section {
+    background: linear-gradient(135deg, #d4fc79 0%, #96f550 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 5px solid #22c55e;
+}
+
+.welcome-section h3 {
+    color: #15803d;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.welcome-section h3 i {
+    font-size: 22px;
+    color: #22c55e;
+}
+
+.welcome-section p {
+    color: #166534;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+body.dark-mode .welcome-section {
+    background: linear-gradient(135deg, #1e5631 0%, #2d6a4f 100%);
+    border-left-color: #52b788;
+}
+
+body.dark-mode .welcome-section h3 {
+    color: #a7e957;
+}
+
+body.dark-mode .welcome-section p {
+    color: #b7e4c7;
+}
+
+/* LABELS */
+label{
+    font-weight:600;
+    font-size:14px;
+    color:#333;
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+body.dark-mode label {
+    color: #e0e0e0;
+}
+
+/* INPUTS */
+input, select{
+    width:100%;
+    padding:12px;
+    margin:8px 0 14px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+    background: white;
+    color: #333;
+    font-family: inherit;
+}
+
+body.dark-mode input, 
+body.dark-mode select {
+    background: #3d3d3d;
+    color: #e0e0e0;
+    border-color: #555;
+}
+
+input:focus, select:focus{
+    outline:none;
+    border-color:#6366f1;
+    box-shadow:0 0 6px rgba(99, 102, 241, 0.3);
+}
+
+/* BUTTONS */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    flex: 1;
+    padding: 12px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* ALERT BOX */
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    animation: slideDown 0.4s ease;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+body.dark-mode .alert-warning {
+    background: #664d03;
+    color: #ffc107;
+    border-color: #806500;
+}
+
+.alert-close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: inherit;
+    opacity: 0.7;
+}
+
+.alert-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .card {
+        padding: 25px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+    <!-- Alert Message -->
+    {% if request.args.get('alert') %}
+    <div class="alert alert-warning" id="alert-box">
+        <span class="alert-close" onclick="closeAlert()">&times;</span>
+        <strong><i class="fas fa-exclamation-triangle"></i> Alert!</strong> {{ request.args.get('alert').replace('+', ' ') }}
+    </div>
+    {% endif %}
+
+    <!-- HEALTH PROFILE FORM -->
+    <div class="card">
+        <div class="welcome-section">
+            <h3><i class="fas fa-check-circle"></i> You are already logged in!</h3>
+            <p>Please fill in your health profile to get personalized recommendations</p>
+        </div>
+
+        <h2><i class="fas fa-clipboard"></i> Edit Health Profile</h2>
+
+        <form method="post">
+            <label>Age</label>
+            <input type="number" name="age" value="{{ profile_data[0] if profile_data else '' }}" required>
+
+            <label>Gender</label>
+            <select name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male" {% if profile_data and profile_data[1] == 'Male' %}selected{% endif %}>Male</option>
+                <option value="Female" {% if profile_data and profile_data[1] == 'Female' %}selected{% endif %}>Female</option>
+                <option value="Other" {% if profile_data and profile_data[1] == 'Other' %}selected{% endif %}>Other</option>
+            </select>
+
+            <label>Height (cm)</label>
+            <input type="number" name="height" value="{{ profile_data[2] if profile_data else '' }}" required>
+
+            <label>Weight (kg)</label>
+            <input type="number" name="weight" value="{{ profile_data[3] if profile_data else '' }}" required>
+
+            <label>Activity Level</label>
+            <select name="activity" required>
+                <option value="">Select Activity Level</option>
+                <option value="Low" {% if profile_data and profile_data[4] == 'Low' %}selected{% endif %}>Low</option>
+                <option value="Moderate" {% if profile_data and profile_data[4] == 'Moderate' %}selected{% endif %}>Moderate</option>
+                <option value="High" {% if profile_data and profile_data[4] == 'High' %}selected{% endif %}>High</option>
+            </select>
+
+            <label>Chronic Diseases</label>
+            <input type="text" name="diseases" value="{{ profile_data[5] if profile_data else '' }}" placeholder="Eg: Diabetes, BP">
+
+            <label>Allergies</label>
+            <input type="text" name="allergies" value="{{ profile_data[6] if profile_data else '' }}" placeholder="Eg: Dust, Pollen">
+
+            <label>Current Medicines</label>
+            <input type="text" name="medicines" value="{{ profile_data[7] if profile_data else '' }}" placeholder="Eg: Paracetamol">
+
+            <div class="button-group">
+                <button type="submit"><i class="fas fa-save"></i> Save Profile</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+// Dark mode support
+document.addEventListener('DOMContentLoaded', function() {
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+function closeAlert() {
+    const alertBox = document.getElementById('alert-box');
+    if (alertBox) {
+        alertBox.style.animation = 'slideUp 0.4s ease';
+        setTimeout(() => alertBox.remove(), 400);
+    }
+}
+
+// Auto-hide alert after 5 seconds
+document.addEventListener('DOMContentLoaded', function() {
+    const alertBox = document.getElementById('alert-box');
+    if (alertBox) {
+        setTimeout(() => closeAlert(), 5000);
+    }
+});
+</script>

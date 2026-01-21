@@ -1,0 +1,277 @@
+<!-- NAVBAR - Include this in all pages -->
+<nav class="navbar">
+    <a href="/" class="navbar-brand">
+        <i class="fas fa-heartbeat"></i>
+        SmartHealth Pharmacy
+    </a>
+    {% if session.get('user_id') %}
+    <ul class="nav-menu">
+        <li><a href="/dashboard" class="nav-link">Home</a></li>
+        <li class="nav-dropdown">
+            <a href="#" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="/diet">Diet & Nutrition</a></li>
+                <li><a href="/module3">Symptom Analysis</a></li>
+                <li><a href="/medicines">Medicine Reminder</a></li>
+                <li><a href="/pharmacy">Find Pharmacy</a></li>
+                <li><a href="/consultation">Doctor Consultation</a></li>
+            </ul>
+        </li>
+        <li class="nav-dropdown">
+            <a href="#" class="nav-link">Profile <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="/profile">View/Edit Profile</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="nav-icons">
+        <button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="/logout" class="auth-btn">Logout</a>
+    </div>
+    {% else %}
+    <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/#modules" class="nav-link">Modules</a></li>
+        <li><a href="/#about" class="nav-link">About</a></li>
+        <li><a href="/login" class="nav-link">Login/Register</a></li>
+    </ul>
+    <div class="nav-icons">
+        <button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="/login" class="auth-btn">Get Started</a>
+    </div>
+    {% endif %}
+</nav>
+
+<style>
+    /* ==================== NAVBAR ==================== */
+    nav.navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
+
+    .navbar-brand i {
+        font-size: 28px;
+        -webkit-text-fill-color: #6366f1;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 40px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-dropdown {
+        position: relative;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        padding: 10px 0;
+        min-width: 200px;
+        z-index: 1001;
+        margin-top: 10px;
+    }
+
+    .dropdown-menu li {
+        padding: 0;
+        list-style: none;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 12px 20px;
+        color: #1f2937;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .dropdown-menu a:hover {
+        background: #f3f4f6;
+        color: #6366f1;
+        padding-left: 25px;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #1f2937;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .nav-link:hover {
+        color: #6366f1;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .nav-icons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        color: #1f2937;
+        transition: 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+        color: #6366f1;
+    }
+
+    .auth-btn {
+        padding: 10px 24px;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .auth-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    /* Dark Mode */
+    body.dark-mode nav.navbar {
+        background: rgba(30, 30, 30, 0.95);
+    }
+
+    body.dark-mode .nav-link {
+        color: #e0e0e0;
+    }
+
+    body.dark-mode .dropdown-menu {
+        background: rgba(30, 30, 30, 0.95);
+    }
+
+    body.dark-mode .dropdown-menu a {
+        color: #e0e0e0;
+    }
+
+    body.dark-mode .dropdown-menu a:hover {
+        background: rgba(99, 102, 241, 0.2);
+        color: #a78bfa;
+    }
+
+    body.dark-mode .theme-toggle {
+        color: #e0e0e0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        nav.navbar {
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            font-size: 20px;
+        }
+
+        .nav-menu {
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 14px;
+        }
+    }
+</style>
+<script>
+// Dark mode toggle functionality
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.toggle('dark-mode');
+    
+    // Save preference to localStorage
+    localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+    
+    // Change icon
+    const icon = document.querySelector('.theme-toggle i');
+    if (isDarkMode) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+
+// Load dark mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+        const icon = document.querySelector('.theme-toggle i');
+        if (icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+});
+</script>

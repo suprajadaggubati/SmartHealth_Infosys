@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif;}
+body{display:flex;min-height:100vh;background:#f4f4f4;}
+.sidebar{width:220px;background:#2c3e50;color:white;padding:20px;flex-shrink:0;}
+.sidebar h2{margin-bottom:30px;}
+.sidebar a{display:block;color:white;text-decoration:none;padding:10px 0;border-radius:6px;}
+.sidebar a:hover{background:#4ca1af;}
+.sidebar a.active{background:#1abc9c;}
+.main{flex-grow:1;padding:30px;}
+h1,h2{margin-top:20px;margin-bottom:15px;}
+table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);margin-bottom:20px;}
+table th,table td{padding:8px;text-align:left;border-bottom:1px solid #ddd;font-size:14px;}
+table th{background:#4ca1af;color:white;}
+form{margin-bottom:30px;display:flex;gap:10px;flex-wrap:wrap;}
+form input, form select{padding:6px;border-radius:6px;border:1px solid #ccc;flex:1;}
+form button{padding:6px 12px;background:#4ca1af;color:white;border:none;border-radius:6px;cursor:pointer;}
+form button:hover{background:#357f8e;}
+button.remove-btn{background:red;color:white;border:none;padding:4px 8px;border-radius:6px;cursor:pointer;}
+button.remove-btn:hover{background:#c0392b;}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+<h2>Admin Panel</h2>
+<a href="/admin_dashboard" class="active">Dashboard</a>
+<a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+<h1>Admin Dashboard</h1>
+
+<!-- ================= Health Records ================= -->
+<h2>Health Monitoring Records</h2>
+<table>
+<tr>
+<th>Record ID</th><th>User ID</th><th>Weight</th><th>Symptom</th><th>Severity</th><th>Days</th><th>Doctor Alert</th><th>Emergency</th><th>Remarks</th><th>Action</th>
+</tr>
+{% for record in health %}
+<tr>
+<td>{{ record['record_id'] }}</td>
+<td>{{ record['user_id'] }}</td>
+<td>{{ record['weight'] }}</td>
+<td>{{ record['symptom'] }}</td>
+<td>{{ record['severity'] }}</td>
+<td>{{ record['days_persisted'] }}</td>
+<td>{{ record['doctor_alert'] }}</td>
+<td>{{ record['emergency_flag'] }}</td>
+<td>{{ record['remarks'] }}</td>
+<td><a href="/delete/health/{{ record['record_id'] }}"><button class="remove-btn">Remove</button></a></td>
+</tr>
+{% endfor %}
+</table>
+<form method="POST" action="/add/health">
+<input type="number" name="user_id" placeholder="User ID" required>
+<input type="number" step="0.1" name="weight" placeholder="Weight" required>
+<input type="text" name="symptom" placeholder="Symptom" required>
+<input type="text" name="severity" placeholder="Severity" required>
+<input type="number" name="days_persisted" placeholder="Days Persisted" required>
+<input type="text" name="doctor_alert" placeholder="Doctor Alert">
+<input type="text" name="emergency_flag" placeholder="Emergency Flag">
+<input type="text" name="remarks" placeholder="Remarks">
+<button type="submit">Add Record</button>
+</form>
+
+<!-- ================= Doctors ================= -->
+<h2>Doctors</h2>
+<table>
+<tr><th>ID</th><th>Doctor</th><th>Specialization</th><th>Hospital</th><th>Availability</th><th>Action</th></tr>
+{% for doc in doctors %}
+<tr>
+<td>{{ doc['id'] }}</td>
+<td>{{ doc['doctor'] }}</td>
+<td>{{ doc['specialization'] }}</td>
+<td>{{ doc['hospital'] }}</td>
+<td>{{ doc['availability'] }}</td>
+<td><a href="/delete/doctors/{{ doc['id'] }}"><button class="remove-btn">Remove</button></a></td>
+</tr>
+{% endfor %}
+</table>
+<form method="POST" action="/add/doctors">
+<input type="text" name="doctor" placeholder="Doctor Name" required>
+<input type="text" name="specialization" placeholder="Specialization" required>
+<input type="text" name="hospital" placeholder="Hospital" required>
+<select name="availability">
+<option value="Available">Available</option>
+<option value="Not Available">Not Available</option>
+</select>
+<button type="submit">Add Doctor</button>
+</form>
+
+<!-- ================= Medicines ================= -->
+<h2>Medicines</h2>
+<table>
+<tr><th>ID</th><th>Name</th><th>Dosage</th><th>Frequency</th><th>Duration</th><th>Warning</th><th>Action</th></tr>
+{% for med in medicines %}
+<tr>
+<td>{{ med['id'] }}</td>
+<td>{{ med['name'] }}</td>
+<td>{{ med['dosage'] }}</td>
+<td>{{ med['frequency'] }}</td>
+<td>{{ med['duration'] }}</td>
+<td>{{ med['warning'] }}</td>
+<td><a href="/delete/medicines/{{ med['id'] }}"><button class="remove-btn">Remove</button></a></td>
+</tr>
+{% endfor %}
+</table>
+<form method="POST" action="/add/medicines">
+<input type="text" name="name" placeholder="Medicine Name" required>
+<input type="text" name="dosage" placeholder="Dosage" required>
+<input type="text" name="frequency" placeholder="Frequency" required>
+<input type="number" name="duration" placeholder="Duration (days)" required>
+<input type="text" name="warning" placeholder="Warning">
+<button type="submit">Add Medicine</button>
+</form>
+
+<!-- ================= Pharmacy ================= -->
+<h2>Pharmacy Availability</h2>
+<table>
+<tr><th>ID</th><th>Pharmacy Name</th><th>Location</th><th>Medicine Name</th><th>Stock</th><th>Contact</th><th>Action</th></tr>
+{% for p in pharmacy %}
+<tr>
+<td>{{ p['pharmacy_id'] }}</td>
+<td>{{ p['pharmacy_name'] }}</td>
+<td>{{ p['location'] }}</td>
+<td>{{ p['medicine_name'] }}</td>
+<td>{{ p['stock'] }}</td>
+<td>{{ p['contact'] }}</td>
+<td><a href="/delete/pharmacy/{{ p['pharmacy_id'] }}"><button class="remove-btn">Remove</button></a></td>
+</tr>
+{% endfor %}
+</table>
+<form method="POST" action="/add/pharmacy">
+<input type="text" name="pharmacy_name" placeholder="Pharmacy Name" required>
+<input type="text" name="location" placeholder="Location" required>
+<input type="text" name="medicine_name" placeholder="Medicine Name" required>
+<input type="text" name="stock" placeholder="Stock" required>
+<input type="text" name="contact" placeholder="Contact">
+<button type="submit">Add Pharmacy</button>
+</form>
+
+<!-- ================= Symptoms ================= -->
+<h2>Symptoms</h2>
+<table>
+<tr><th>ID</th><th>Symptom</th><th>Severity</th><th>Days</th><th>Condition</th><th>Medicine</th><th>Consult</th><th>Action</th></tr>
+{% for s in symptoms %}
+<tr>
+<td>{{ s['id'] }}</td>
+<td>{{ s['symptom'] }}</td>
+<td>{{ s['severity'] }}</td>
+<td>{{ s['days'] }}</td>
+<td>{{ s['condition'] }}</td>
+<td>{{ s['medicine'] }}</td>
+<td>{{ s['consult'] }}</td>
+<td><a href="/delete/symptoms/{{ s['id'] }}"><button class="remove-btn">Remove</button></a></td>
+</tr>
+{% endfor %}
+</table>
+<form method="POST" action="/add/symptoms">
+<input type="text" name="symptom" placeholder="Symptom" required>
+<input type="text" name="severity" placeholder="Severity" required>
+<input type="number" name="days" placeholder="Days" required>
+<input type="text" name="condition" placeholder="Condition">
+<input type="text" name="medicine" placeholder="Medicine">
+<input type="text" name="consult" placeholder="Consult">
+<button type="submit">Add Symptom</button>
+</form>
+
+<!-- ================= Diet ================= -->
+<h2>Diet</h2>
+<table>
+<tr><th>ID</th><th>Food</th><th>Calories</th><th>Protein</th><th>Carbs</th><th>Fats</th><th>Diet</th><th>Meal</th><th>Action</th></tr>
+{% for d in diet %}
+<tr>
+<td>{{ d['id'] }}</td>
+<td>{{ d['food'] }}</td>
+<td>{{ d['calories'] }}</td>
+<td>{{ d['protein'] }}</td>
+<td>{{ d['carbs'] }}</td>
+<td>{{ d['fats'] }}</td>
+<td>{{ d['diet'] }}</td>
+<td>{{ d['meal'] }}</td>
+<td><a href="/delete/diet/{{ d['id'] }}"><button class="remove-btn">Remove</button></a></td>
+</tr>
+{% endfor %}
+</table>
+<form method="POST" action="/add/diet">
+<input type="text" name="food" placeholder="Food" required>
+<input type="number" name="calories" placeholder="Calories" required>
+<input type="number" name="protein" placeholder="Protein" required>
+<input type="number" name="carbs" placeholder="Carbs" required>
+<input type="number" name="fats" placeholder="Fats" required>
+<input type="text" name="diet" placeholder="Diet">
+<input type="text" name="meal" placeholder="Meal">
+<button type="submit">Add Food</button>
+</form>
+
+</div>
+</body>
+</html>

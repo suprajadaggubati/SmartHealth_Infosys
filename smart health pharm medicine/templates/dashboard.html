@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SmartHealth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --bg-light: #f9fafb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-light);
+        }
+
+        /* NAVBAR */
+        nav.navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .navbar-brand i {
+            font-size: 28px;
+            -webkit-text-fill-color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #1f2937;
+            transition: 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+        }
+
+        .auth-btn {
+            padding: 10px 24px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* MAIN CONTENT */
+        .dashboard-container {
+            margin-top: 70px;
+            padding: 40px 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dashboard-header {
+            background: var(--gradient);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .dashboard-header-content {
+            flex: 1;
+        }
+
+        .dashboard-header-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .dashboard-header-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            opacity: 0.95;
+        }
+
+        .dashboard-header-image i {
+            font-size: 120px;
+            opacity: 0.4;
+        }
+
+        .dashboard-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        /* CARDS GRID */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .info-card .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .info-card .unit {
+            color: #6b7280;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        /* TABLE SECTION */
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        table tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        table tr:hover {
+            background: #f9fafb;
+        }
+
+        table td {
+            padding: 15px;
+        }
+
+        table td:first-child {
+            font-weight: 600;
+            color: #1f2937;
+            width: 40%;
+        }
+
+        table td:last-child {
+            color: #6b7280;
+        }
+
+        /* BUTTONS GRID */
+        .buttons-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-back {
+            background: #e5e7eb;
+            color: #1f2937;
+        }
+
+        .btn-back:hover {
+            background: #d1d5db;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav.navbar {
+                padding: 0 20px;
+            }
+
+            .dashboard-container {
+                padding: 20px;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .nav-menu {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .dashboard-header {
+                padding: 25px;
+                flex-direction: column;
+            }
+
+            .dashboard-header h1 {
+                font-size: 24px;
+            }
+
+            .dashboard-header-image img {
+                max-width: 200px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            table td {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* DARK MODE */
+        body.dark-mode {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode nav.navbar {
+            background: rgba(30, 30, 30, 0.95);
+        }
+
+        body.dark-mode .nav-link {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .info-card,
+        body.dark-mode .section {
+            background: #2d2d2d;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode table tr:hover {
+            background: #3a3a3a;
+        }
+
+        body.dark-mode table td:first-child {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .btn-back {
+            background: #4a4a4a;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">
+            <i class="fas fa-heartbeat"></i>
+            SmartHealth
+        </a>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/#modules" class="nav-link">Modules</a></li>
+            <li><a href="/#about" class="nav-link">About</a></li>
+            <li><a href="/login" class="nav-link">Login/Register</a></li>
+        </ul>
+        <div class="nav-icons">
+            <button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="/" class="auth-btn">Logout</a>
+        </div>
+    </nav>
+
+    <!-- DASHBOARD CONTAINER -->
+    <div class="dashboard-container">
+        <!-- HEADER -->
+        <div class="dashboard-header">
+            <div class="dashboard-header-content">
+                <h1><i class="fas fa-chart-line"></i> Your Health Profile</h1>
+                <p>View and manage your comprehensive health information</p>
+            </div>
+            <div class="dashboard-header-image">
+                <img src="/static/dashboard_img.png" alt="Healthcare Professional" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 300%22%3E%3Crect fill=%22%23fff%22 width=%22300%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%236366f1%22 font-weight=%22bold%22%3EHealthcare%3C/text%3E%3C/svg%3E'" />
+            </div>
+        </div>
+
+        <!-- QUICK STATS -->
+        <div class="dashboard-grid">
+            <div class="info-card">
+                <h3>Age</h3>
+                <div class="value">{{data[0]}} <span class="unit">years</span></div>
+            </div>
+            <div class="info-card">
+                <h3>Gender</h3>
+                <div class="value">{{data[1]}}</div>
+            </div>
+            <div class="info-card">
+                <h3>Height</h3>
+                <div class="value">{{data[2]}} <span class="unit">cm</span></div>
+            </div>
+            <div class="info-card">
+                <h3>Weight</h3>
+                <div class="value">{{data[3]}} <span class="unit">kg</span></div>
+            </div>
+        </div>
+
+        <!-- HEALTH PROFILE SECTION -->
+        <div class="section">
+            <h2><i class="fas fa-user-circle"></i> Profile Information</h2>
+            <table>
+                <tr>
+                    <td>Activity Level</td>
+                    <td>{{data[4]}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- MEDICAL HISTORY SECTION -->
+        <div class="section">
+            <h2><i class="fas fa-stethoscope"></i> Medical History</h2>
+            <table>
+                <tr>
+                    <td>Diseases</td>
+                    <td>{{data[5]}}</td>
+                </tr>
+                <tr>
+                    <td>Allergies</td>
+                    <td>{{data[6]}}</td>
+                </tr>
+                <tr>
+                    <td>Current Medicines</td>
+                    <td>{{data[7]}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="section">
+            <h2><i class="fas fa-tasks"></i> Quick Actions</h2>
+            <div class="buttons-section">
+                <button class="btn btn-primary" onclick="goDiet()">
+                    <i class="fas fa-utensils"></i> View Diet Plan
+                </button>
+                <button class="btn btn-primary" onclick="medicines()">
+                    <i class="fas fa-pills"></i> Medicines
+                </button>
+                <button class="btn btn-primary" onclick="pharmacy()">
+                    <i class="fas fa-pharmacy"></i> Find Pharmacy
+                </button>
+                <button class="btn btn-primary" onclick="module3()">
+                    <i class="fas fa-heartbeat"></i> Symptom Check
+                </button>
+                <button class="btn btn-primary" onclick="consultation()">
+                    <i class="fas fa-video"></i> Consultation
+                </button>
+                <button class="btn btn-back" onclick="goHome()">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'true');
+                document.querySelector('.theme-toggle i').classList.remove('fa-moon');
+                document.querySelector('.theme-toggle i').classList.add('fa-sun');
+            } else {
+                localStorage.setItem('darkMode', 'false');
+                document.querySelector('.theme-toggle i').classList.add('fa-moon');
+                document.querySelector('.theme-toggle i').classList.remove('fa-sun');
+            }
+        }
+
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.theme-toggle i').classList.remove('fa-moon');
+            document.querySelector('.theme-toggle i').classList.add('fa-sun');
+        }
+
+        function goHome() { window.location.href = "/"; }
+        function goDiet() { window.location.href = "/diet"; }
+        function medicines() { window.location.href = "/medicines"; }
+        function pharmacy() { window.location.href = "/pharmacy"; }
+        function module3() { window.location.href = "/module3"; }
+        function consultation() { window.location.href = "/consultation"; }
+    </script>
+</body>
+</html>

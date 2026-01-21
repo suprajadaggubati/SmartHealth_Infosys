@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Symptom Analysis</title>
+<style>
+/* GENERAL BODY */
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:linear-gradient(135deg,#e3f2fd,#ede7f6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+/* MAIN CARD */
+.container{
+    background:white;
+    width:420px;
+    padding:40px 30px;
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+.container:hover{
+    transform:translateY(-5px);
+    box-shadow:0 25px 45px rgba(0,0,0,0.15);
+}
+
+/* HEADINGS */
+h2{
+    text-align:center;
+    color:#1565c0;
+    margin-bottom:25px;
+    font-size:24px;
+}
+h3{
+    color:#333;
+    margin-bottom:10px;
+}
+
+/* FORM ELEMENTS */
+label{
+    font-weight:600;
+    color:#333;
+    display:block;
+    margin-bottom:6px;
+    font-size:14px;
+}
+select, input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:14px;
+    outline:none;
+    transition:0.3s;
+}
+select:focus, input:focus{
+    border-color:#1e88e5;
+    box-shadow:0 0 0 2px rgba(30,136,229,0.15);
+    background:#f9faff;
+}
+
+/* BUTTON */
+button{
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    background:linear-gradient(135deg,#1e88e5,#42a5f5);
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{
+    background:linear-gradient(135deg,#0d47a1,#1e88e5);
+}
+
+/* HORIZONTAL LINE */
+hr{
+    margin:30px 0;
+    border:none;
+    height:1px;
+    background:#ddd;
+}
+
+/* PARAGRAPHS */
+p{
+    font-size:14px;
+    color:#555;
+    line-height:1.6;
+}
+
+/* RESULT COLORS */
+.result-warning{
+    color:#d32f2f;
+    font-weight:600;
+}
+.result-safe{
+    color:#2e7d32;
+    font-weight:600;
+}
+
+/* LINK */
+a{
+    display:block;
+    margin-top:20px;
+    text-align:center;
+    text-decoration:none;
+    color:#1e88e5;
+    font-weight:600;
+}
+a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Symptom Analysis & Medicine Guidance</h2>
+
+<form method="POST">
+
+    <label>Symptom</label>
+    <select name="symptom" required>
+        <option>Fever</option>
+        <option>Cold</option>
+        <option>Headache</option>
+        <option>Cough</option>
+        <option>Chest Pain</option>
+        <option>Stomach Pain</option>
+        <option>Vomiting</option>
+        <option>Diarrhea</option>
+        <option>Breathing Issue</option>
+        <option>Body Pain</option>
+    </select>
+
+    <br><br>
+
+    <label>Severity</label>
+    <select name="severity" required>
+        <option>Mild</option>
+        <option>Moderate</option>
+        <option>Severe</option>
+    </select>
+
+    <br><br>
+
+    <label>Number of Days</label>
+    <input type="number" name="days" min="1" required>
+
+    <button type="submit">Analyze Symptoms</button>
+</form>
+
+<hr>
+
+{% if result %}
+<h3>Result</h3>
+
+<p><b>Possible Condition:</b> {{ result[0] }}</p>
+<p><b>Suggested Medicine:</b> {{ result[1] }}</p>
+
+{% if result[2] == 'Yes' %}
+<p class="result-warning">Doctor consultation required</p>
+{% else %}
+<p class="result-safe">Self-care and OTC guidance only</p>
+{% endif %}
+
+<p style="color:gray;font-size:13px;">
+This information is for early awareness only and does not replace professional medical consultation.
+</p>
+{% endif %}
+
+<a href="/dashboard">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

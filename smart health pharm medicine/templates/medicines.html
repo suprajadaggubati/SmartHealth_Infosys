@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicine Reminder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            margin:0;
+            font-family:"Segoe UI", Arial, sans-serif;
+            background:linear-gradient(135deg,#e3f2fd,#f3e5f5);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+            padding: 100px 40px 40px 40px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+        }
+
+        /* MAIN CARD */
+        .card{
+            width:100%;
+            max-width:900px;
+            background:white;
+            padding:30px;
+            border-radius:14px;
+            box-shadow:0 15px 35px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .card {
+            background: #2d2d2d;
+            color: #e0e0e0;
+        }
+
+        h2{
+            text-align:center;
+            color:#1e88e5;
+            margin-bottom:25px;
+        }
+
+        body.dark-mode h2 {
+            color: #64b5f6;
+        }
+
+        h3{
+            margin-top:30px;
+            color:#333;
+        }
+
+        body.dark-mode h3 {
+            color: #e0e0e0;
+        }
+
+        /* FORM */
+        form{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:15px;
+        }
+
+        label{
+            font-weight:600;
+            color:#333;
+        }
+
+        body.dark-mode label {
+            color: #e0e0e0;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            border-radius:6px;
+            border:1px solid #ccc;
+            font-size:14px;
+            background: white;
+            color: #333;
+        }
+
+        body.dark-mode input {
+            background: #3d3d3d;
+            color: #e0e0e0;
+            border-color: #555;
+        }
+
+        button{
+            grid-column:span 2;
+            margin-top:10px;
+            padding:12px;
+            background:linear-gradient(135deg,#1e88e5,#42a5f5);
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:15px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:linear-gradient(135deg,#1565c0,#1e88e5);
+            transform:translateY(-2px);
+        }
+
+        hr{
+            margin:30px 0;
+            border:none;
+            border-top:1px solid #ddd;
+        }
+
+        body.dark-mode hr {
+            border-top-color: #555;
+        }
+
+        /* TABLE */
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+            font-size:14px;
+        }
+
+        th, td{
+            padding:12px;
+            border-bottom:1px solid #ddd;
+            text-align:left;
+        }
+
+        body.dark-mode th,
+        body.dark-mode td {
+            border-bottom-color: #555;
+        }
+
+        th{
+            background:#f1f5ff;
+            color:#1e88e5;
+        }
+
+        body.dark-mode th {
+            background: rgba(99, 102, 241, 0.2);
+            color: #64b5f6;
+        }
+
+        tr:hover{
+            background:#f9f9f9;
+        }
+
+        body.dark-mode tr:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        /* LINKS */
+        .links{
+            margin-top:25px;
+            display:flex;
+            justify-content:flex-start;
+            gap: 20px;
+        }
+
+        .links a{
+            text-decoration:none;
+            color:#1e88e5;
+            font-weight:600;
+        }
+
+        body.dark-mode .links a {
+            color: #64b5f6;
+        }
+
+        .links a:hover{
+            text-decoration:underline;
+        }
+
+        /* EMPTY MESSAGE */
+        .empty{
+            color:#777;
+            margin-top:10px;
+        }
+
+        body.dark-mode .empty {
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="card">
+
+    <!-- Page Heading -->
+    <h2>Medicine Reminder</h2>
+
+    <!-- Medicine Reminder Form -->
+    <form method="POST">
+
+        <div>
+            <label>Medicine Name</label>
+            <input type="text" name="name" required>
+        </div>
+
+        <div>
+            <label>Dosage</label>
+            <input type="text" name="dosage" required>
+        </div>
+
+        <div>
+            <label>Frequency</label>
+            <input type="text" name="frequency" required>
+        </div>
+
+        <div>
+            <label>Duration (in days)</label>
+            <input type="number" name="duration" required>
+        </div>
+
+        <div style="grid-column:span 2;">
+            <label>Warning / Instructions</label>
+            <input type="text" name="warning">
+        </div>
+
+        <button type="submit">Save Medicine</button>
+    </form>
+
+    <hr>
+
+    <!-- Display Saved Medicine Reminders -->
+    <h3>Saved Medicines</h3>
+
+    {% if medicines %}
+        <table>
+            <tr>
+                <th>Medicine Name</th>
+                <th>Dosage</th>
+                <th>Frequency</th>
+                <th>Duration</th>
+                <th>Warning</th>
+            </tr>
+
+            {% for m in medicines %}
+            <tr>
+                <td>{{ m[1] }}</td>
+                <td>{{ m[2] }}</td>
+                <td>{{ m[3] }}</td>
+                <td>{{ m[4] }} days</td>
+                <td>{{ m[5] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p class="empty">No medicines added yet.</p>
+    {% endif %}
+
+    <!-- Navigation Links -->
+    <div class="links">
+        <a href="/pharmacy">View Pharmacy Availability</a>
+</html>

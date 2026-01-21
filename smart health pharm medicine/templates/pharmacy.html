@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pharmacy Availability</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f7fc;
+}
+.card{
+    width:900px;
+    margin:40px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 12px 25px rgba(0,0,0,0.2);
+}
+h2{
+    text-align:center;
+    color:#1e88e5;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin-top:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+th,td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+th{
+    background:#e3f2fd;
+}
+.back{
+    margin-top:20px;
+    display:inline-block;
+    text-decoration:none;
+    color:#1e88e5;
+    font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Pharmacy Availability</h2>
+
+{% if pharmacies %}
+
+<!-- Filter Input -->
+<input type="text" id="filterInput" placeholder="Search by pharmacy, location, or medicine">
+
+<table>
+<tr>
+    <th>Pharmacy Name</th>
+    <th>Location</th>
+    <th>Medicine</th>
+    <th>Stock Status</th>
+    <th>Contact</th>
+</tr>
+
+{% for p in pharmacies %}
+<tr>
+    <td>{{ p[1] }}</td>
+    <td>{{ p[2] }}</td>
+    <td>{{ p[3] }}</td>
+    <td>{{ p[4] }}</td>
+    <td>{{ p[5] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% else %}
+<p style="color:red;text-align:center;">
+    No pharmacy information available.
+</p>
+{% endif %}
+
+<a href="/module4" class="back">Back to Medicines</a>
+
+</div>
+
+<script>
+document.getElementById("filterInput").addEventListener("keyup", function () {
+    let filter = this.value.toLowerCase();
+    let rows = document.querySelectorAll("table tr");
+
+    rows.forEach((row, index) => {
+        if (index === 0) return;
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+    });
+});
+</script>
+
+</body>
+</html>

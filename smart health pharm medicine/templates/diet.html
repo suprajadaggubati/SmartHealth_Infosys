@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Personalized 7-Day Diet Plan</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f2f6fb;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    background: #1e1e1e;
+}
+
+/* MAIN CARD */
+.container{
+    width:900px;
+    margin:30px auto;
+    background:#ffffff;
+    border-radius:14px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    padding:30px;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .container {
+    background: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* HEADINGS */
+h2{
+    text-align:center;
+    color:#2e7d32;
+    margin-bottom:10px;
+}
+
+body.dark-mode h2 {
+    color: #66bb6a;
+}
+
+h3{
+    color:#1e88e5;
+    margin-top:25px;
+}
+
+body.dark-mode h3 {
+    color: #64b5f6;
+}
+
+h4{
+    color:#f57c00;
+    margin-top:15px;
+}
+
+body.dark-mode h4 {
+    color: #ffb74d;
+}
+
+/* INFO GRID */
+.info{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+.info div{
+    background:#f7f9fc;
+    padding:12px;
+    border-radius:8px;
+    font-size:15px;
+}
+
+body.dark-mode .info div {
+    background: #3d3d3d;
+    color: #e0e0e0;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+th{
+    background:#1e88e5;
+    color:white;
+    padding:10px;
+    text-align:left;
+}
+
+body.dark-mode th {
+    background: #1e88e5;
+}
+
+td{
+    padding:9px;
+    border-bottom:1px solid #ddd;
+}
+
+body.dark-mode td {
+    border-bottom-color: #555;
+}
+
+tr:hover{
+    background:#f1f8ff;
+}
+
+body.dark-mode tr:hover {
+    background: rgba(99, 102, 241, 0.2);
+}
+
+/* ALERTS */
+.alert{
+    margin-top:20px;
+    padding:12px;
+    border-radius:8px;
+    background:#ffebee;
+    color:#c62828;
+    font-weight:600;
+}
+.good{
+    margin-top:12px;
+    padding:12px;
+    border-radius:8px;
+    background:#e8f5e9;
+    color:#2e7d32;
+    font-weight:600;
+}
+
+/* SUGGESTION */
+.suggestion{
+    margin-top:20px;
+    background:#e3f2fd;
+    padding:14px;
+    border-radius:8px;
+    color:#0d47a1;
+    font-weight:600;
+}
+
+body.dark-mode .suggestion {
+    background: rgba(99, 102, 241, 0.2);
+    color: #a78bfa;
+}
+
+/* SATISFACTION BOX */
+.satisfaction-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 14px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.satisfaction-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.satisfaction-box p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+.satisfaction-form {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-yes, .btn-no {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+
+.btn-yes {
+    background: #10b981;
+}
+
+.btn-yes:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-no {
+    background: #f59e0b;
+}
+
+.btn-no:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+}
+
+body.dark-mode .satisfaction-box {
+    background: linear-gradient(135deg, #483d8b 0%, #2f4f7f 100%);
+}
+
+/* SUCCESS BOX */
+.success-box {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 5px solid #10b981;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    animation: slideDown 0.4s ease;
+}
+
+body.dark-mode .success-box {
+    background: #064e3b;
+    color: #a7e957;
+    border-left-color: #52b788;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BUTTON */
+button{
+    margin-top:25px;
+    padding:10px 22px;
+    border:none;
+    border-radius:8px;
+    background:#1e88e5;
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+}
+button:hover{
+    background:#1565c0;
+}
+
+/* FILTER */
+.filter{
+    margin-top:20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.filter label {
+    color: #333;
+}
+
+body.dark-mode .filter label {
+    color: #e0e0e0;
+}
+
+select{
+    padding:6px 10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    background: white;
+    color: #333;
+}
+
+body.dark-mode select {
+    background: #3d3d3d;
+    color: #e0e0e0;
+    border-color: #555;
+}
+</style>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+<h2>Customized 7-Day Diet Plan</h2>
+
+<!-- BASIC DETAILS -->
+<div class="info">
+    <div><b>BMI:</b> {{ bmi }} ({{ bmi_status }})</div>
+    <div><b>Daily Calories Needed:</b> {{ calories }} kcal</div>
+    <div><b>Diet Type:</b> {{ diet_type }}</div>
+    <div><b>Total Meal Calories:</b> {{ meal_calories }} kcal</div>
+</div>
+
+<!-- DAY FILTER -->
+<div class="filter">
+    <label for="day">Select Day:</label>
+    <select id="dayFilter">
+        <option value="all">All Days</option>
+        {% for d in days_list %}
+            <option value="{{ d }}">{{ d }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+<!-- 7-DAY MEAL PLAN -->
+{% for day, day_meals in meals_by_day.items() %}
+<div class="day-section" data-day="{{ day }}">
+    <h3>{{ day }}</h3>
+    {% for meal_name, items in day_meals.items() %}
+        <h4>{{ meal_name }}</h4>
+        <table>
+            <tr>
+                <th>Food Item</th>
+                <th>Calories</th>
+                <th>Protein</th>
+                <th>Carbs</th>
+                <th>Fats</th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.food }}</td>
+                <td>{{ item.calories }}</td>
+                <td>{{ item.protein }} g</td>
+                <td>{{ item.carbs }} g</td>
+                <td>{{ item.fats }} g</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+</div>
+{% endfor %}
+
+<!-- NUTRIENTS -->
+<h3>Nutrient Distribution</h3>
+<ul>
+    {% for k,v in nutrients.items() %}
+    <li><b>{{ k }}:</b> {{ v }}</li>
+    {% endfor %}
+</ul>
+
+<!-- ALERTS -->
+<div class="alert">{{ junk_alert }}</div>
+<div class="good">{{ water_reminder }}</div>
+
+<!-- SUGGESTION -->
+<div class="suggestion">
+    Diet Suggestion: {{ suggestion }}
+</div>
+
+<!-- SUCCESS MESSAGE -->
+{% if success_msg %}
+<div class="success-box">
+    <i class="fas fa-check-circle"></i> {{ success_msg }}
+</div>
+{% endif %}
+
+<!-- SATISFACTION QUESTION -->
+<div class="satisfaction-box">
+    <h3><i class="fas fa-smile"></i> Are you satisfied with this diet plan?</h3>
+    <p>Your feedback helps us improve your personalized recommendations</p>
+    
+    <form method="post" class="satisfaction-form">
+        <button type="submit" name="satisfaction" value="yes" class="btn-yes">
+            <i class="fas fa-thumbs-up"></i> Yes, I'm Happy
+        </button>
+        <button type="submit" name="satisfaction" value="no" class="btn-no">
+            <i class="fas fa-redo"></i> No, Recreate Plan
+        </button>
+    </form>
+</div>
+
+</div>
+
+<script>
+// JavaScript for day filter
+const dayFilter = document.getElementById("dayFilter");
+const daySections = document.querySelectorAll(".day-section");
+
+dayFilter.addEventListener("change", function() {
+    const selectedDay = this.value;
+    daySections.forEach(section => {
+        if(selectedDay === "all" || section.dataset.day === selectedDay){
+            section.style.display = "block";
+        } else {
+            section.style.display = "none";
+        }
+    });
+});
+
+// Dark mode support
+document.addEventListener('DOMContentLoaded', function() {
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+    }
+});
+</script>
+
+</body>
+</html>

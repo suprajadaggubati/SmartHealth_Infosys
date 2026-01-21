@@ -1,7 +1,6 @@
 # SmartHealth_Infosys
 # SmartHealth - AI-Based Healthcare Platform
 
-//![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen) ![Phase](https://img.shields.io/badge/Phase-2%20Complete-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## 📋 Table of Contents
 

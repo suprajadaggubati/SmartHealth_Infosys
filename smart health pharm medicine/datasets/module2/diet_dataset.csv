@@ -1,0 +1,221 @@
+food_id,food_name,category,calories,protein,carbs,fats,diet_type,recommended_time
+1,Idli,Veg,120,4,22,1,Diabetic,Breakfast
+2,Dosa,Veg,168,5,30,3,Normal,Breakfast
+3,Upma,Veg,180,6,32,4,Weight Loss,Breakfast
+4,Oats Porridge,Veg,150,7,27,3,Weight Loss,Breakfast
+5,Boiled Eggs,Non-Veg,155,13,1,11,Muscle Gain,Breakfast
+6,Grilled Chicken,Non-Veg,240,27,0,5,Muscle Gain,Lunch
+7,Vegetable Rice,Veg,210,6,38,4,Normal,Lunch
+8,Chapati,Veg,120,4,20,2,Diabetic,Lunch
+9,Paneer Curry,Veg,265,14,8,20,Muscle Gain,Lunch
+10,Fish Curry,Non-Veg,220,22,3,12,Normal,Lunch
+11,Fruit Salad,Veg,95,2,24,0,Weight Loss,Snack
+12,Roasted Nuts,Veg,170,6,8,14,Muscle Gain,Snack
+13,Vegetable Soup,Veg,80,3,12,1,Diabetic,Dinner
+14,Steamed Rice,Veg,200,4,45,1,Normal,Dinner
+15,Grilled Paneer,Veg,240,18,6,18,Muscle Gain,Dinner
+16,Curd Rice,Veg,190,6,28,4,Diabetic,Dinner
+17,Chicken Soup,Non-Veg,150,15,5,4,Weight Loss,Dinner
+18,Banana,Veg,105,1,27,0,Normal,Snack
+19,Apple,Veg,95,0,25,0,Diabetic,Snack
+20,Sprouts Salad,Veg,140,9,20,2,Weight Loss,Lunch
+21,Spicy Idli,Veg,113,6,31,2,Weight Loss,Breakfast
+22,Light Idli,Veg,221,10,23,9,PCOS,Breakfast
+23,High-Protein Idli,Veg,219,14,38,2,Heart Healthy,Breakfast
+24,Low Oil Idli,Veg,201,9,24,7,Thyroid,Breakfast
+25,Idli with Salad,Veg,169,9,26,3,Weight Loss,Breakfast
+26,Idli with Raita,Veg,260,9,28,12,Thyroid,Breakfast
+27,Idli with Curd,Veg,214,14,18,9,Diabetic,Breakfast
+28,Spicy Dosa,Veg,179,10,34,2,PCOS,Breakfast
+29,Light Dosa,Veg,207,13,36,2,Heart Healthy,Breakfast
+30,High-Protein Dosa,Veg,366,13,37,18,Muscle Gain,Breakfast
+31,Low Oil Dosa,Veg,114,12,21,2,Weight Loss,Breakfast
+32,Dosa with Salad,Veg,185,13,19,6,Thyroid,Breakfast
+33,Dosa with Raita,Veg,207,6,19,11,Thyroid,Breakfast
+34,Dosa with Curd,Veg,161,12,41,2,Hypertension,Breakfast
+35,Spicy Upma,Veg,196,6,35,3,Hypertension,Breakfast
+36,Light Upma,Veg,185,6,23,7,Heart Healthy,Breakfast
+37,High-Protein Upma,Veg,150,9,26,2,Heart Healthy,Breakfast
+38,Low Oil Upma,Veg,161,6,24,4,Weight Loss,Breakfast
+39,Upma with Salad,Veg,228,7,29,9,PCOS,Breakfast
+40,Upma with Raita,Veg,231,14,22,9,Normal,Breakfast
+41,Upma with Curd,Veg,199,14,38,2,Heart Healthy,Breakfast
+42,Spicy Poha,Veg,174,8,27,3,PCOS,Breakfast
+43,Light Poha,Veg,207,11,38,2,PCOS,Breakfast
+44,High-Protein Poha,Veg,188,12,29,2,Normal,Breakfast
+45,Low Oil Poha,Veg,172,6,29,3,Weight Loss,Breakfast
+46,Poha with Salad,Veg,177,8,24,5,PCOS,Breakfast
+47,Poha with Raita,Veg,239,14,41,2,Thyroid,Breakfast
+48,Poha with Curd,Veg,163,7,30,2,Hypertension,Breakfast
+49,Spicy Uttapam,Veg,253,9,37,7,Normal,Breakfast
+50,Light Uttapam,Veg,230,13,24,9,PCOS,Breakfast
+51,High-Protein Uttapam,Veg,390,15,21,27,Muscle Gain,Breakfast
+52,Low Oil Uttapam,Veg,180,12,39,2,Thyroid,Breakfast
+53,Uttapam with Salad,Veg,189,12,18,7,PCOS,Breakfast
+54,Uttapam with Raita,Veg,173,7,36,2,Heart Healthy,Breakfast
+55,Uttapam with Curd,Veg,149,10,19,3,Diabetic,Breakfast
+56,Spicy Oats Porridge,Veg,196,7,31,4,Heart Healthy,Breakfast
+57,Light Oats Porridge,Veg,233,9,31,8,Normal,Breakfast
+58,High-Protein Oats Porridge,Veg,217,10,22,9,PCOS,Breakfast
+59,Low Oil Oats Porridge,Veg,199,6,34,4,Thyroid,Breakfast
+60,Oats Porridge with Salad,Veg,245,12,32,7,Normal,Breakfast
+61,Oats Porridge with Raita,Veg,215,12,23,8,PCOS,Breakfast
+62,Oats Porridge with Curd,Veg,192,10,38,2,Thyroid,Breakfast
+63,Spicy Ragi Porridge,Veg,379,16,36,19,Muscle Gain,Breakfast
+64,Light Ragi Porridge,Veg,174,13,22,3,Diabetic,Breakfast
+65,High-Protein Ragi Porridge,Veg,194,12,29,3,Thyroid,Breakfast
+66,Low Oil Ragi Porridge,Veg,234,12,31,6,Thyroid,Breakfast
+67,Ragi Porridge with Salad,Veg,186,13,24,4,Hypertension,Breakfast
+68,Ragi Porridge with Raita,Veg,113,10,17,2,Weight Loss,Breakfast
+69,Ragi Porridge with Curd,Veg,227,12,28,7,Heart Healthy,Breakfast
+70,Spicy Moong Dal Chilla,Veg,144,9,26,2,Weight Loss,Breakfast
+71,Light Moong Dal Chilla,Veg,194,8,38,2,Hypertension,Breakfast
+72,High-Protein Moong Dal Chilla,Veg,129,9,10,5,Weight Loss,Breakfast
+73,Low Oil Moong Dal Chilla,Veg,197,9,34,2,Normal,Breakfast
+74,Moong Dal Chilla with Salad,Veg,210,6,27,8,Thyroid,Breakfast
+75,Moong Dal Chilla with Raita,Veg,158,11,22,2,Diabetic,Breakfast
+76,Moong Dal Chilla with Curd,Veg,200,13,19,8,Hypertension,Breakfast
+77,Spicy Besan Cheela,Veg,184,13,41,2,Hypertension,Breakfast
+78,Light Besan Cheela,Veg,254,9,20,15,Normal,Breakfast
+79,High-Protein Besan Cheela,Veg,368,12,18,27,Muscle Gain,Breakfast
+80,Low Oil Besan Cheela,Veg,255,14,23,11,Thyroid,Breakfast
+81,Besan Cheela with Salad,Veg,124,12,27,2,Weight Loss,Breakfast
+82,Besan Cheela with Raita,Veg,204,13,35,2,Thyroid,Breakfast
+83,Besan Cheela with Curd,Veg,224,9,33,6,Hypertension,Breakfast
+84,Spicy Vegetable Sandwich,Veg,220,9,22,10,Heart Healthy,Breakfast
+85,Light Vegetable Sandwich,Veg,158,6,32,2,Diabetic,Breakfast
+86,High-Protein Vegetable Sandwich,Veg,199,9,38,2,Heart Healthy,Breakfast
+87,Low Oil Vegetable Sandwich,Veg,233,14,20,10,PCOS,Breakfast
+88,Vegetable Sandwich with Salad,Veg,174,13,41,2,Hypertension,Breakfast
+89,Vegetable Sandwich with Raita,Veg,162,8,27,2,Diabetic,Breakfast
+90,Vegetable Sandwich with Curd,Veg,216,7,30,7,Heart Healthy,Breakfast
+91,Spicy Sprouts Bowl,Veg,160,10,25,2,Hypertension,Breakfast
+92,Light Sprouts Bowl,Veg,141,7,13,6,Diabetic,Breakfast
+93,High-Protein Sprouts Bowl,Veg,251,9,31,10,Thyroid,Breakfast
+94,Low Oil Sprouts Bowl,Veg,169,6,28,3,Hypertension,Breakfast
+95,Sprouts Bowl with Salad,Veg,168,14,26,2,Heart Healthy,Breakfast
+96,Sprouts Bowl with Raita,Veg,235,10,35,6,Thyroid,Breakfast
+97,Sprouts Bowl with Curd,Veg,381,20,39,16,Muscle Gain,Breakfast
+98,Spicy Paneer Bhurji,Veg,354,17,39,14,Muscle Gain,Breakfast
+99,Light Paneer Bhurji,Veg,227,13,29,6,Heart Healthy,Breakfast
+100,High-Protein Paneer Bhurji,Veg,116,10,21,2,Weight Loss,Breakfast
+101,Low Oil Paneer Bhurji,Veg,191,9,39,2,Thyroid,Breakfast
+102,Paneer Bhurji with Salad,Veg,251,7,35,9,Thyroid,Breakfast
+103,Paneer Bhurji with Raita,Veg,193,8,31,4,Heart Healthy,Breakfast
+104,Paneer Bhurji with Curd,Veg,201,6,17,12,Diabetic,Breakfast
+105,Spicy Masala Omelette,Veg,329,17,38,12,Muscle Gain,Breakfast
+106,Light Masala Omelette,Veg,186,7,10,13,Diabetic,Breakfast
+107,High-Protein Masala Omelette,Veg,223,11,38,3,PCOS,Breakfast
+108,Low Oil Masala Omelette,Veg,227,13,32,5,Thyroid,Breakfast
+109,Masala Omelette with Salad,Veg,154,7,38,2,Heart Healthy,Breakfast
+110,Masala Omelette with Raita,Veg,169,12,40,2,Hypertension,Breakfast
+111,Masala Omelette with Curd,Veg,388,17,34,20,Muscle Gain,Breakfast
+112,Spicy Quinoa Upma,Veg,147,12,10,6,Weight Loss,Breakfast
+113,Light Quinoa Upma,Veg,160,13,10,7,Weight Loss,Breakfast
+114,High-Protein Quinoa Upma,Veg,184,13,35,2,PCOS,Breakfast
+115,Low Oil Quinoa Upma,Veg,218,8,18,12,PCOS,Breakfast
+116,Quinoa Upma with Salad,Veg,217,14,19,9,Diabetic,Breakfast
+117,Quinoa Upma with Raita,Veg,328,16,21,20,Muscle Gain,Breakfast
+118,Quinoa Upma with Curd,Veg,255,7,30,11,Thyroid,Breakfast
+119,Spicy Dalia,Veg,217,6,20,12,PCOS,Breakfast
+120,Light Dalia,Veg,185,13,10,10,Diabetic,Breakfast
+121,High-Protein Dalia,Veg,161,12,34,2,PCOS,Breakfast
+122,Low Oil Dalia,Veg,209,6,41,2,Heart Healthy,Breakfast
+123,Dalia with Salad,Veg,222,14,31,4,Hypertension,Breakfast
+124,Dalia with Raita,Veg,168,7,24,4,PCOS,Breakfast
+125,Dalia with Curd,Veg,154,9,32,2,Heart Healthy,Breakfast
+126,Spicy Brown Rice Bowl,Veg,414,10,60,14,Heart Healthy,Lunch
+127,Light Brown Rice Bowl,Veg,393,9,63,11,Hypertension,Lunch
+128,High-Protein Brown Rice Bowl,Veg,448,11,67,15,Heart Healthy,Lunch
+129,Low Oil Brown Rice Bowl,Veg,440,14,64,14,Hypertension,Lunch
+130,Brown Rice Bowl with Salad,Veg,421,9,58,17,Thyroid,Lunch
+131,Brown Rice Bowl with Raita,Veg,409,7,67,12,Heart Healthy,Lunch
+132,Brown Rice Bowl with Curd,Veg,407,10,53,17,PCOS,Lunch
+133,Spicy Millet Rice Bowl,Veg,545,16,61,26,Muscle Gain,Lunch
+134,Light Millet Rice Bowl,Veg,468,6,52,26,PCOS,Lunch
+135,High-Protein Millet Rice Bowl,Veg,465,10,45,27,PCOS,Lunch
+136,Low Oil Millet Rice Bowl,Veg,474,11,67,18,Normal,Lunch
+137,Millet Rice Bowl with Salad,Veg,397,6,34,26,Diabetic,Lunch
+138,Millet Rice Bowl with Raita,Veg,412,14,57,14,Heart Healthy,Lunch
+139,Millet Rice Bowl with Curd,Veg,417,11,61,14,Thyroid,Lunch
+140,Spicy Chapati Plate,Veg,437,6,67,16,Normal,Lunch
+141,Light Chapati Plate,Veg,411,13,47,19,Normal,Lunch
+142,High-Protein Chapati Plate,Veg,456,6,62,20,Heart Healthy,Lunch
+143,Low Oil Chapati Plate,Veg,393,7,45,20,Hypertension,Lunch
+144,Chapati Plate with Salad,Veg,428,11,50,20,Heart Healthy,Lunch
+145,Chapati Plate with Raita,Veg,370,14,55,10,Weight Loss,Lunch
+146,Chapati Plate with Curd,Veg,441,7,54,21,PCOS,Lunch
+147,Spicy Dal Rice Combo,Veg,383,10,58,12,Hypertension,Lunch
+148,Light Dal Rice Combo,Veg,385,13,53,13,Diabetic,Lunch
+149,High-Protein Dal Rice Combo,Veg,416,8,63,14,Heart Healthy,Lunch
+150,Low Oil Dal Rice Combo,Veg,435,10,43,24,Diabetic,Lunch
+151,Dal Rice Combo with Salad,Veg,419,9,64,14,Hypertension,Lunch
+152,Dal Rice Combo with Raita,Veg,444,8,51,23,PCOS,Lunch
+153,Dal Rice Combo with Curd,Veg,413,8,54,18,Thyroid,Lunch
+154,Spicy Khichdi Bowl,Veg,440,13,46,22,Hypertension,Lunch
+155,Light Khichdi Bowl,Veg,475,13,67,17,Normal,Lunch
+156,High-Protein Khichdi Bowl,Veg,347,6,48,14,Weight Loss,Lunch
+157,Low Oil Khichdi Bowl,Veg,430,9,46,23,Hypertension,Lunch
+158,Khichdi Bowl with Salad,Veg,465,10,53,23,Normal,Lunch
+159,Khichdi Bowl with Raita,Veg,437,9,52,21,Heart Healthy,Lunch
+160,Khichdi Bowl with Curd,Veg,431,8,58,18,PCOS,Lunch
+161,Spicy Curd Rice Bowl,Veg,417,12,52,17,Heart Healthy,Lunch
+162,Light Curd Rice Bowl,Veg,451,7,48,25,Normal,Lunch
+163,High-Protein Curd Rice Bowl,Veg,489,14,47,27,Normal,Lunch
+164,Low Oil Curd Rice Bowl,Veg,403,11,52,16,PCOS,Lunch
+165,Curd Rice Bowl with Salad,Veg,467,13,56,21,Normal,Lunch
+166,Curd Rice Bowl with Raita,Veg,389,14,65,8,Heart Healthy,Lunch
+167,Curd Rice Bowl with Curd,Veg,548,14,56,29,Muscle Gain,Lunch
+168,Spicy Rajma Chawal,Veg,347,13,51,10,Weight Loss,Lunch
+169,Light Rajma Chawal,Veg,581,13,65,29,Muscle Gain,Lunch
+170,High-Protein Rajma Chawal,Veg,459,13,47,24,Heart Healthy,Lunch
+171,Low Oil Rajma Chawal,Veg,457,14,66,15,PCOS,Lunch
+172,Rajma Chawal with Salad,Veg,401,11,61,12,PCOS,Lunch
+173,Rajma Chawal with Raita,Veg,484,13,62,20,Thyroid,Lunch
+174,Rajma Chawal with Curd,Veg,459,8,52,24,PCOS,Lunch
+175,Spicy Chole Rice,Veg,466,10,66,18,Thyroid,Lunch
+176,Light Chole Rice,Veg,352,6,40,18,Weight Loss,Lunch
+177,High-Protein Chole Rice,Veg,423,11,45,22,Thyroid,Lunch
+178,Low Oil Chole Rice,Veg,402,14,63,10,Heart Healthy,Lunch
+179,Chole Rice with Salad,Veg,433,14,54,17,Heart Healthy,Lunch
+180,Chole Rice with Raita,Veg,428,11,35,27,Diabetic,Lunch
+181,Chole Rice with Curd,Veg,576,18,45,35,Muscle Gain,Lunch
+182,Spicy Sambar Rice,Veg,601,14,63,32,Muscle Gain,Lunch
+183,Light Sambar Rice,Veg,456,14,60,17,Thyroid,Lunch
+184,High-Protein Sambar Rice,Veg,435,6,36,29,Diabetic,Lunch
+185,Low Oil Sambar Rice,Veg,587,12,56,35,Muscle Gain,Lunch
+186,Sambar Rice with Salad,Veg,395,9,57,14,Heart Healthy,Lunch
+187,Sambar Rice with Raita,Veg,387,8,56,14,Heart Healthy,Lunch
+188,Sambar Rice with Curd,Veg,419,8,63,15,Heart Healthy,Lunch
+189,Spicy Vegetable Pulao,Veg,482,14,59,21,Normal,Lunch
+190,Light Vegetable Pulao,Veg,431,6,43,26,Thyroid,Lunch
+191,High-Protein Vegetable Pulao,Veg,407,13,58,13,PCOS,Lunch
+192,Low Oil Vegetable Pulao,Veg,407,7,52,19,Weight Loss,Lunch
+193,Vegetable Pulao with Salad,Veg,423,9,57,17,Thyroid,Lunch
+194,Vegetable Pulao with Raita,Veg,405,10,48,19,Diabetic,Lunch
+195,Vegetable Pulao with Curd,Veg,430,10,49,21,PCOS,Lunch
+196,Spicy Fruit Bowl,Veg,122,14,32,2,Diabetic,Snack
+197,Light Fruit Bowl,Veg,200,14,40,2,PCOS,Snack
+198,High-Protein Fruit Bowl,Veg,144,8,29,2,Diabetic,Snack
+199,Low Oil Fruit Bowl,Veg,186,9,25,5,Hypertension,Snack
+200,Fruit Bowl with Salad,Veg,147,14,38,2,Heart Healthy,Snack
+201,Fruit Bowl with Raita,Veg,115,14,11,2,Weight Loss,Snack
+202,Fruit Bowl with Curd,Veg,159,14,20,2,Hypertension,Snack
+203,Spicy Roasted Chana,Veg,127,9,36,2,Heart Healthy,Snack
+204,Light Roasted Chana,Veg,95,12,23,2,Weight Loss,Snack
+205,High-Protein Roasted Chana,Veg,218,13,21,9,Normal,Snack
+206,Low Oil Roasted Chana,Veg,141,10,23,2,Hypertension,Snack
+207,Roasted Chana with Salad,Veg,209,12,32,3,Normal,Snack
+208,Roasted Chana with Raita,Veg,128,6,28,2,Weight Loss,Snack
+209,Roasted Chana with Curd,Veg,122,13,22,2,PCOS,Snack
+210,Spicy Makhana,Veg,162,7,33,2,PCOS,Snack
+211,Light Makhana,Veg,175,13,41,2,Heart Healthy,Snack
+212,High-Protein Makhana,Veg,325,12,35,15,Muscle Gain,Snack
+213,Low Oil Makhana,Veg,136,10,32,2,Heart Healthy,Snack
+214,Makhana with Salad,Veg,112,9,36,2,Hypertension,Snack
+215,Makhana with Raita,Veg,157,11,42,2,Thyroid,Snack
+216,Makhana with Curd,Veg,334,12,18,23,Muscle Gain,Snack
+217,Spicy Buttermilk,Veg,180,7,30,3,Diabetic,Snack
+218,Light Buttermilk,Veg,167,9,34,2,PCOS,Snack
+219,High-Protein Buttermilk,Veg,177,12,21,5,Heart Healthy,Snack
+220,Low Oil Buttermilk,Veg,133,9,19,2,Hypertension,Snack

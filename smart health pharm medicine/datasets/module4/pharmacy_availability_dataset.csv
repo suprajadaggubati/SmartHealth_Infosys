@@ -1,0 +1,46 @@
+pharmacy_id,pharmacy_name,location,medicine_name,stock,contact
+1,MedPlus Pharmacy,Hyderabad,Paracetamol,Available,9876543210
+2,Apollo Pharmacy,Hyderabad,Ibuprofen,Available,9876543211
+3,HealthCare Medicals,Hyderabad,Amoxicillin,Out of Stock,9876543212
+4,City Medical Store,Warangal,Cough Syrup,Available,9876543213
+5,Wellness Pharmacy,Karimnagar,Antacid,Available,9876543214
+6,Apollo Pharmacy,Warangal,ORS,Available,9876543215
+7,MedLife Store,Hyderabad,Vitamin C,Available,9876543216
+8,City Care Medicals,Karimnagar,Antihistamine,Out of Stock,9876543217
+9,Health First Pharmacy,Hyderabad,Insulin,Available,9876543218
+10,MedPlus Pharmacy,Warangal,Omeprazole,Available,9876543219
+11,MedLife Pharmacy,Kurnool,Antihistamine,Available,9876543300
+12,Care & Cure Pharmacy,Nizamabad,Metronidazole,Available,9876543301
+13,Sanjeevani Medicals,Rajahmundry,Vitamin C,Out of Stock,9876543302
+14,Sri Sai Medicals,Visakhapatnam,ORS,Available,9876543303
+15,Lifeline Pharmacy,Hyderabad,Ibuprofen,Available,9876543304
+16,Vijaya Medical Hall,Karimnagar,Metformin,Available,9876543305
+17,Sai Ram Pharmacy,Visakhapatnam,Pantoprazole,Out of Stock,9876543306
+18,Om Medical Store,Rajahmundry,Insulin Pen,Available,9876543307
+19,Noble Pharmacy,Guntur,Probiotic Capsule,Available,9876543308
+20,Family Care Medicals,Hyderabad,Cetirizine,Out of Stock,9876543309
+21,Prime Health Pharmacy,Khammam,Vitamin D3,Available,9876543310
+22,Trust Medicos,Khammam,Vitamin C,Available,9876543311
+23,Sunrise Pharmacy,Secunderabad,Ondansetron,Out of Stock,9876543312
+24,Metro Medicals,Tirupati,ORS Sachet,Out of Stock,9876543313
+25,HealthyPlus Pharmacy,Rajahmundry,Aspirin,Available,9876543314
+26,Green Cross Pharmacy,Vijayawada,ORS,Available,9876543315
+27,Arogya Medicals,Kurnool,Ranitidine,Limited Stock,9876543316
+28,CityCare Pharmacy,Khammam,B-Complex,Available,9876543317
+29,WellBeing Medicals,Secunderabad,Amoxicillin,Out of Stock,9876543318
+30,QuickMeds Pharmacy,Nizamabad,ORS,Limited Stock,9876543319
+31,HealthFirst Pharmacy,Secunderabad,Salbutamol Inhaler,Available,9876543320
+32,GoodHealth Medicos,Kurnool,Montelukast,Available,9876543321
+33,Swasthya Pharmacy,Khammam,Azithromycin,Out of Stock,9876543322
+34,VitalCare Medicals,Rajahmundry,Amoxyclav,Available,9876543323
+35,Jan Aushadhi Kendra,Kurnool,Cetirizine,Available,9876543324
+36,Medico Point,Karimnagar,Cetirizine,Available,9876543325
+37,Apollo Pharmacy,Nizamabad,Cetirizine Syrup,Out of Stock,9876543326
+38,MedPlus Pharmacy,Karimnagar,Zinc Tablet,Out of Stock,9876543327
+39,Sri Lakshmi Medicals,Hyderabad,Doxycycline,Out of Stock,9876543328
+40,Ravi Medicals,Khammam,Clotrimazole Cream,Available,9876543329
+41,New Life Medicals,Karimnagar,B-Complex,Limited Stock,9876543330
+42,Anu Medicals,Khammam,Azithromycin,Out of Stock,9876543331
+43,Shree Medical Store,Vijayawada,Amoxyclav,Available,9876543332
+44,CarePoint Pharmacy,Nizamabad,Insulin,Available,9876543333
+45,Star Health Medicals,Visakhapatnam,Insulin Pen,Available,9876543334

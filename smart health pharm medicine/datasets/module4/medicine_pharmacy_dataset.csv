@@ -1,0 +1,46 @@
+medicine_id,medicine_name,dosage,frequency,duration_days,reminder_time,medicine_type,interaction_warning
+1,Paracetamol,500mg,2,3,Morning-Evening,Tablet,Avoid overdose
+2,Ibuprofen,400mg,2,5,Morning-Evening,Tablet,Do not take with empty stomach
+3,Amoxicillin,250mg,3,5,Morning-Afternoon-Night,Capsule,Complete full course
+4,Cough Syrup,10ml,2,4,Morning-Night,Syrup,May cause drowsiness
+5,Antacid,1 tablet,2,7,Before meals,Tablet,Avoid alcohol
+6,ORS,As required,After loose motion,2,Anytime,Solution,Use clean water
+7,Vitamin C,500mg,1,10,Morning,Tablet,Safe supplement
+8,Antihistamine,10mg,1,5,Night,Tablet,May cause sleepiness
+9,Insulin,As prescribed,2,30,Morning-Evening,Injection,Doctor supervision required
+10,Omeprazole,20mg,1,14,Before breakfast,Capsule,Do not crush capsule
+11,Cetirizine,10mg,1,3,Night,Tablet,May cause drowsiness; avoid alcohol
+12,Loratadine,10mg,1,5,Morning,Tablet,Avoid with severe liver disease
+13,Pantoprazole,40mg,1,7,Before breakfast,Tablet,Do not crush; avoid long-term unsupervised use
+14,Omeprazole,20mg,1,7,Before breakfast,Capsule,May reduce absorption of some drugs
+15,Azithromycin,500mg,1,3,Morning,Tablet,Complete full course; avoid antacids within 2 hours
+16,Doxycycline,100mg,2,5,Morning-Evening,Capsule,Avoid in pregnancy; do not lie down after taking
+17,Metronidazole,400mg,3,5,Morning-Afternoon-Night,Tablet,Strictly avoid alcohol
+18,ORS Sachet,1 sachet,3,2,After meals,Powder,Use within 24 hours after mixing
+19,Vitamin C,500mg,1,10,Morning,Tablet,May cause acidity in sensitive stomach
+20,Vitamin D3,60000 IU,1,4,After lunch,Capsule,Take with food for better absorption
+21,Calcium + D3,1 tablet,1,30,After dinner,Tablet,Avoid taking with iron at same time
+22,Iron + Folic Acid,1 tablet,1,30,After dinner,Tablet,May cause constipation; take with water
+23,Zinc Tablet,20mg,1,10,After lunch,Tablet,Do not exceed recommended dose
+24,Domperidone,10mg,2,3,Before meals,Tablet,Avoid if heart rhythm issues
+25,Ondansetron,4mg,2,2,Morning-Evening,Tablet,May cause headache; avoid if QT prolongation
+26,Montelukast,10mg,1,7,Night,Tablet,Report mood changes if any
+27,Salbutamol Inhaler,100mcg,4,3,As needed,Inhaler,Do not overuse; monitor palpitations
+28,Clotrimazole Cream,1%,2,7,Morning-Night,Cream,For external use only
+29,Mupirocin Ointment,2%,3,5,Morning-Afternoon-Night,Ointment,Use on clean dry skin
+30,Povidone Iodine,10%,2,5,Morning-Night,Solution,Avoid in iodine allergy
+31,Diclofenac Gel,1%,3,7,Morning-Afternoon-Night,Gel,Do not apply on broken skin
+32,Aspirin,75mg,1,30,Night,Tablet,Avoid if bleeding disorder; consult doctor
+33,Atorvastatin,10mg,1,30,Night,Tablet,Avoid grapefruit; monitor liver
+34,Amlodipine,5mg,1,30,Morning,Tablet,May cause ankle swelling
+35,Metformin,500mg,2,30,Morning-Evening,Tablet,Take with meals; monitor sugar
+36,Glucometer Strips,1 strip,3,30,As required,Device,Store sealed; check expiry
+37,Insulin Pen,As prescribed,2,30,Before meals,Injection,Refrigerate; do not freeze
+38,Levothyroxine,50mcg,1,30,Early morning,Tablet,Take on empty stomach; avoid calcium within 4 hours
+39,B-Complex,1 tablet,1,30,Morning,Tablet,Generally safe; may cause mild nausea
+40,Probiotic Capsule,1 capsule,1,7,After lunch,Capsule,Keep refrigerated if required
+41,Loperamide,2mg,2,2,After loose stools,Tablet,Do not use if blood in stool/fever
+42,Ranitidine,150mg,2,5,Morning-Evening,Tablet,Check recent safety guidance; use alternatives if advised
+43,Cetirizine Syrup,5ml,1,3,Night,Syrup,May cause drowsiness
+44,Amoxyclav,625mg,2,5,Morning-Evening,Tablet,Take after food; complete course
+45,Cefixime,200mg,2,5,Morning-Evening,Tablet,Complete full course

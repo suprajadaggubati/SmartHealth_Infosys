@@ -1,0 +1,31 @@
+record_id,user_id,weight,symptom,severity,days_persisted,doctor_alert,emergency_flag,remarks
+1,1,72,Fever,Mild,1,No,No,Normal viral fever
+2,1,71,Headache,Moderate,3,Yes,No,Consult physician recommended
+3,2,85,Chest Pain,Severe,1,Yes,Yes,Immediate emergency attention
+4,3,65,Cough,Mild,2,No,No,Improving condition
+5,4,78,Breathlessness,Severe,2,Yes,Yes,Emergency care advised
+6,5,90,High Sugar,Moderate,4,Yes,No,Endocrinologist consultation
+7,6,68,Joint Pain,Mild,3,No,No,Regular exercise suggested
+8,7,74,Dizziness,Moderate,2,Yes,No,Monitor blood pressure
+9,8,60,Nausea,Mild,1,No,No,Stable condition
+10,9,82,Fever,Moderate,4,Yes,No,Medical review required
+11,10,72,Insomnia,Mild,4,No,No,Home care + hydrate; monitor symptoms
+12,6,59,Skin Rash,Mild,5,No,No,Home care + hydrate; monitor symptoms
+13,8,50,UTI Symptoms,Moderate,1,Yes,No,Increase water intake; urine test advised if burning persists
+14,14,52,Skin Rash,Mild,6,No,No,Home care + hydrate; monitor symptoms
+15,3,95,Dehydration,Moderate,4,Yes,No,"If persists, consult doctor; avoid self-medication"
+16,10,49,Low Blood Sugar,Severe,4,Yes,Yes,Take quick sugar source; emergency care if unconscious
+17,10,74,Migraine,Severe,3,Yes,Yes,Seek immediate medical help; do not delay
+18,9,45,Dehydration,Moderate,6,Yes,No,"If persists, consult doctor; avoid self-medication"
+19,2,88,Constipation,Mild,7,No,No,Home care + hydrate; monitor symptoms
+20,5,94,Blurred Vision,Moderate,3,Yes,No,"If persists, consult doctor; avoid self-medication"
+21,2,63,Asthma Attack,Severe,2,Yes,Yes,Seek immediate medical help; do not delay
+22,8,45,Ear Pain,Mild,6,No,No,Home care + hydrate; monitor symptoms
+23,5,77,UTI Symptoms,Moderate,2,Yes,No,Increase water intake; urine test advised if burning persists
+24,9,51,Blurred Vision,Moderate,3,Yes,No,"If persists, consult doctor; avoid self-medication"
+25,14,85,Migraine,Severe,5,Yes,Yes,Seek immediate medical help; do not delay
+26,4,54,High Blood Sugar,Severe,7,Yes,Yes,Monitor glucose; consult doctor for dosage adjustment
+27,3,79,UTI Symptoms,Moderate,5,Yes,No,Increase water intake; urine test advised if burning persists
+28,15,45,Palpitations,Severe,3,Yes,Yes,Seek immediate medical help; do not delay
+29,8,46,Diarrhea,Moderate,3,Yes,No,"If persists, consult doctor; avoid self-medication"
+30,15,98,High BP,Severe,2,Yes,Yes,Check BP twice daily; urgent doctor consult if headache/chest pain

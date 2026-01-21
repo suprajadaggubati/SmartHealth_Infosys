@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartHealth - Your Personal AI Health Companion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: #f9fafb;
+            transition: all 0.3s ease;
+        }
+
+        /* ==================== NAVBAR ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-brand i {
+            font-size: 28px;
+            -webkit-text-fill-color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0;
+            align-items: center;
+            flex: 1;
+            margin-left: 100px;
+            justify-content: flex-start;
+        }
+
+        .nav-menu li {
+            flex: 1;
+            text-align: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+            display: block;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 60%;
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            width: 60%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 22px;
+            color: var(--text-dark);
+            transition: 0.3s ease;
+            padding: 8px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+            transform: rotate(20deg);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            margin-top: 70px;
+            min-height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 50px;
+            gap: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .hero-content {
+            flex: 1;
+            color: white;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .hero-highlight {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 4px 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 500px;
+            line-height: 1.8;
+            animation: slideInLeft 0.8s ease 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: slideInLeft 0.8s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            animation: slideInRight 0.8s ease;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-icon {
+            font-size: 150px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ==================== SERVICES SECTION ==================== */
+        #services {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #faf5ff 100%);
+            position: relative;
+        }
+
+        .services-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: rgba(99, 102, 241, 0.05);
+            transition: height 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .module-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            transition: 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover .module-icon {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .service-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== FEATURES SECTION ==================== */
+        #features {
+            padding: 100px 50px;
+            background: white;
+            position: relative;
+        }
+
+        .features-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #faf5ff 100%);
+            border-radius: 20px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            transform: translate(30px, -30px);
+            transition: 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
+            background: linear-gradient(135deg, #f0f2ff 0%, #f5f0ff 100%);
+        }
+
+        .feature-card:hover::before {
+            transform: translate(0, 0);
+        }
+
+        .feature-card i {
+            font-size: 45px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+            transition: 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card:hover i {
+            transform: scale(1.2);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        #about {
+            padding: 100px 50px;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            border-radius: 0;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        #about::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        #about h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+        }
+
+        #about p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        #about .btn {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== DASHBOARD SECTION ==================== */
+        #dashboardView {
+            display: none;
+        }
+
+        #dashboardView.active {
+            display: block;
+        }
+
+        .dashboard-welcome {
+            margin-top: 70px;
+            min-height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 50px;
+            gap: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-welcome-content {
+            flex: 1;
+            color: white;
+            z-index: 1;
+        }
+
+        .dashboard-welcome-content h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .dashboard-welcome-content p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .dashboard-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-image-box {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .dashboard-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logout-btn {
+            padding: 12px 30px;
+            background: white;
+            color: #6366f1;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .main-sections {
+            display: none;
+        }
+
+        .main-sections.active {
+            display: block;
+        }
+
+        body.dark-mode .dashboard-welcome {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d1b4e 100%);
+        }
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 0 30px;
+            }
+
+            .nav-menu {
+                margin-left: 60px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            #about h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 15px;
+                height: 60px;
+            }
+
+            .navbar-brand {
+                font-size: 18px;
+            }
+
+            .nav-menu {
+                gap: 0;
+                margin-left: 30px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-menu li {
+                flex: 0 1 auto;
+            }
+
+            .nav-link {
+                font-size: 12px;
+                padding: 4px 0;
+            }
+
+            .nav-icons {
+                margin-left: auto;
+                gap: 10px;
+            }
+
+            .theme-toggle {
+                font-size: 18px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 80px 20px 60px 20px;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image-wrapper {
+                height: 300px;
+            }
+
+            .hero-icon {
+                font-size: 100px;
+            }
+
+            #services,
+            #features,
+            #about {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .services-grid,
+            .features-grid {
+                gap: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card,
+            .feature-card {
+                padding: 30px 20px;
+            }
+
+            #about h2 {
+                font-size: 32px;
+            }
+
+            #about p {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 16px;
+                gap: 5px;
+            }
+
+            .navbar-brand i {
+                font-size: 20px;
+            }
+
+            .nav-link {
+                font-size: 11px;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 20px 15px;
+                min-height: 250px;
+            }
+
+            .module-icon {
+                font-size: 40px;
+            }
+
+            .feature-card {
+                padding: 25px 15px;
+            }
+
+            #about h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* ==================== DARK MODE ==================== */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background: rgba(30, 30, 30, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-mode .nav-link {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .nav-link:hover {
+            color: #a5f3fc;
+        }
+
+        body.dark-mode .service-card,
+        body.dark-mode .feature-card {
+            background-color: #2d2d2d;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-mode .service-card {
+            background-color: #252525;
+        }
+
+        body.dark-mode .feature-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1f1f1f 100%);
+        }
+
+        body.dark-mode .section-title {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .section-subtitle {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode #services {
+            background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
+        }
+
+        body.dark-mode #features {
+            background: #1f1f1f;
+        }
+
+        body.dark-mode footer {
+            background: #0a0a0a;
+        }
+
+        body.dark-mode .service-card h3,
+        body.dark-mode .feature-card h3 {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .service-card p,
+        body.dark-mode .feature-card p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d1b4e 100%);
+        }
+
+        body.dark-mode #about {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d1b4e 100%);
+        }
+
+        body.dark-mode .service-btn {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <a href="/" class="navbar-brand">
+            <i class="fas fa-heartbeat"></i>
+            SmartHealth
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+            <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
+            <li><a href="#features" class="nav-link" data-section="features">Features</a></li>
+            <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+            <li><a href="#" class="nav-link" id="authBtn" onclick="openAuthModal('login')">Login/Register</a></li>
+        </ul>
+        <div class="nav-icons">
+            <button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- DASHBOARD VIEW (Shows after login) -->
+    <div id="dashboardView">
+        <div class="dashboard-welcome">
+            <div class="dashboard-welcome-content">
+                <h1>Welcome, <span id="dashboardUsername">User</span>! 👋</h1>
+                <p>Access your personalized health management dashboard and continue your wellness journey with SmartHealth.</p>
+                <button class="logout-btn" onclick="logoutUser()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+            <div class="dashboard-image-wrapper">
+                <div class="dashboard-image-box">
+                    <img src="/static/dashboard_img.png" alt="Healthcare Professional">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN SECTIONS (Hidden when logged in) -->
+    <div id="mainSections" class="main-sections active">
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Journey to <span class="hero-highlight">Smart Health</span> Starts Here</h1>
+            <p>Experience AI-powered health management with personalized diet guidance, intelligent symptom analysis, medicine reminders, and expert consultations all in one powerful platform.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary" onclick="openAuthModal('register'); return false;">
+                    <i class="fas fa-rocket"></i>
+                    Get Started
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <i class="fas fa-play-circle"></i>
+                    See Features
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-wrapper">
+                <img src="/static/dashboard_img.png" alt="Healthcare Professional">
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <div class="services-container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Five comprehensive health modules designed for your wellness journey</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <div class="module-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Health Profile</h3>
+                        <p>Build your complete health profile with medical history and personal health data.</p>
+                    </div>
+                    <button class="service-btn" onclick="goModule1()">Open Service</button>
+                </div>
+                <div class="service-card">
+                    <div>
+                        <div class="module-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Diet & Nutrition</h3>
+                        <p>Get personalized diet plans based on your health profile and dietary preferences.</p>
+                    </div>
+                    <button class="service-btn" onclick="goDiet()">Open Service</button>
+                </div>
+                <div class="service-card">
+                    <div>
+                        <div class="module-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Symptom Analysis</h3>
+                        <p>AI-powered symptom checker for intelligent health insights and recommendations.</p>
+                    </div>
+                    <button class="service-btn" onclick="module3()">Open Service</button>
+                </div>
+                <div class="service-card">
+                    <div>
+                        <div class="module-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3>Medicine & Pharmacy</h3>
+                        <p>Smart medicine reminders and find nearby pharmacies with real-time availability.</p>
+                    </div>
+                    <button class="service-btn" onclick="medicines()">Open Service</button>
+                </div>
+                <div class="service-card">
+                    <div>
+                        <div class="module-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Consultation & Monitoring</h3>
+                        <p>Connect with expert doctors and continuously monitor your health metrics.</p>
+                    </div>
+                    <button class="service-btn" onclick="consultation()">Open Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Choose SmartHealth?</h2>
+            <p class="section-subtitle">Advanced features to empower your health decisions</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Machine learning algorithms that learn your health patterns and provide personalized recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile First Design</h3>
+                    <p>Access your health data anytime, anywhere with our responsive mobile-optimized interface.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure & Private</h3>
+                    <p>Enterprise-grade encryption ensures your sensitive health data is always protected.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Health Analytics</h3>
+                    <p>Comprehensive charts and reports to track your health progress over time.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bell"></i>
+                    <h3>Smart Notifications</h3>
+                    <p>Intelligent reminders for medications, appointments, and health checkups.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Expert Community</h3>
+                    <p>Connect with healthcare professionals and get answers to your health questions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="about">
+        <h2>Ready to Take Control of Your Health?</h2>
+        <p>Join thousands of users who have transformed their health journey with SmartHealth. Start your free journey today and experience personalized healthcare at your fingertips.</p>
+        <a href="/register" class="btn btn-primary">
+            <i class="fas fa-heart"></i>
+            Start Your Free Trial
+        </a>
+    </section>
+
+    </div> <!-- End mainSections -->
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 SmartHealth. All rights reserved. | Empowering Better Health Through Technology</p>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-toggle i');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'true');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('darkMode', 'false');
+                themeIcon.classList.add('fa-moon');
+                themeIcon.classList.remove('fa-sun');
+            }
+        }
+
+        // Load dark mode preference
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+                const themeIcon = document.querySelector('.theme-toggle i');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+
+        // Active Section Highlighting on Scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section, .hero');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            if (current) {
+                const activeLink = document.querySelector(`a[href="#${current}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Auth Modal
+        function openAuthModal(mode = 'login') {
+            document.getElementById('authModal').style.display = 'flex';
+            document.getElementById('loginForm').style.display = mode === 'login' ? 'block' : 'none';
+            document.getElementById('registerForm').style.display = mode === 'register' ? 'block' : 'none';
+            document.getElementById('formTitle').textContent = mode === 'login' ? 'Login to SmartHealth' : 'Create Account';
+            document.getElementById('toggleText').innerHTML = mode === 'login' 
+                ? "Don't have an account? <a href='#' onclick='openAuthModal(\"register\")' style='color:#6366f1;font-weight:600;'>Register</a>"
+                : "Already have an account? <a href='#' onclick='openAuthModal(\"login\")' style='color:#6366f1;font-weight:600;'>Login</a>";
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').style.display = 'none';
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ Login successful! Welcome ' + data.username);
+                    localStorage.setItem('user_id', data.user_id);
+                    localStorage.setItem('username', data.username);
+                    closeAuthModal();
+                    showDashboard();
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            });
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('❌ Passwords do not match!');
+                return;
+            }
+
+            fetch('/api/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ Registration successful! Please login now.');
+                    openAuthModal('login');
+                } else {
+                    alert('❌ ' + data.message);
+                }
+            });
+        }
+
+        // Check login status
+        function checkLoginStatus() {
+            const userId = localStorage.getItem('user_id');
+            if (userId) {
+                document.getElementById('authBtn').textContent = 'Logout';
+                document.getElementById('authBtn').onclick = function(e) {
+                    e.preventDefault();
+                    logoutUser();
+                };
+                showDashboard();
+            }
+        }
+
+        function showDashboard() {
+            const username = localStorage.getItem('username') || 'User';
+            document.getElementById('dashboardUsername').textContent = username;
+            document.getElementById('dashboardView').classList.add('active');
+            document.getElementById('mainSections').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('user_id');
+            localStorage.removeItem('username');
+            document.getElementById('dashboardView').classList.remove('active');
+            document.getElementById('authBtn').textContent = 'Login/Register';
+            document.getElementById('authBtn').onclick = function() {
+                openAuthModal('login');
+            };
+            alert('✅ Logged out successfully!');
+            window.scrollTo(0, 0);
+        }
+
+        // Check login status
+
+        // Module Navigation - Check login first
+        function goModule1() { 
+            if (!localStorage.getItem('user_id')) {
+                openAuthModal('login');
+            } else {
+                window.location.href = "/register"; 
+            }
+        }
+        function goDiet() { 
+            if (!localStorage.getItem('user_id')) {
+                openAuthModal('login');
+            } else {
+                window.location.href = "/diet"; 
+            }
+        }
+        function medicines() { 
+            if (!localStorage.getItem('user_id')) {
+                openAuthModal('login');
+            } else {
+                window.location.href = "/medicines"; 
+            }
+        }
+        function pharmacy() { 
+            if (!localStorage.getItem('user_id')) {
+                openAuthModal('login');
+            } else {
+                window.location.href = "/pharmacy"; 
+            }
+        }
+        function module3() { 
+            if (!localStorage.getItem('user_id')) {
+                openAuthModal('login');
+            } else {
+                window.location.href = "/module3"; 
+            }
+        }
+        function consultation() { 
+            if (!localStorage.getItem('user_id')) {
+                openAuthModal('login');
+            } else {
+                window.location.href = "/consultation"; 
+            }
+        }
+
+        checkLoginStatus();
+    </script>
+
+    <!-- AUTH MODAL -->
+    <div id="authModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;flex-direction:column;">
+        <div style="background:white;padding:40px;border-radius:20px;width:90%;max-width:400px;box-shadow:0 10px 40px rgba(0,0,0,0.2);">
+            <button onclick="closeAuthModal()" style="float:right;background:none;border:none;font-size:28px;cursor:pointer;color:#999;">×</button>
+            <h2 id="formTitle" style="margin-bottom:30px;color:#1f2937;font-size:24px;margin-top:0;">Login to SmartHealth</h2>
+            
+            <!-- Login Form -->
+            <form id="loginForm" onsubmit="handleLogin(event)" style="display:none;">
+                <input type="text" id="loginUsername" placeholder="Username" required style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;font-size:14px;">
+                <input type="password" id="loginPassword" placeholder="Password" required style="width:100%;padding:12px;margin-bottom:20px;border:1px solid #ddd;border-radius:8px;font-size:14px;">
+                <button type="submit" style="width:100%;padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px;">Login</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" onsubmit="handleRegister(event)" style="display:none;">
+                <input type="text" id="regUsername" placeholder="Username" required style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;font-size:14px;">
+                <input type="password" id="regPassword" placeholder="Password" required style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;font-size:14px;">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required style="width:100%;padding:12px;margin-bottom:20px;border:1px solid #ddd;border-radius:8px;font-size:14px;">
+                <button type="submit" style="width:100%;padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px;">Create Account</button>
+            </form>
+
+            <p id="toggleText" style="text-align:center;margin-top:20px;font-size:14px;color:#666;"></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -773,7 +773,7 @@ tail -f logs/app.log
 - **Documentation:** Check `README.md`
 - **Quick Reference:** See `NAVBAR_QUICK_REFERENCE.md`
 - **Issues:** Create an issue on GitHub
-- **Email:** support@smarthealth.com
+- **Email:** y22cs029@rvrjc.ac.in
 
 
 

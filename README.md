@@ -775,14 +775,14 @@ tail -f logs/app.log
 - **Email:** y22cs029@rvrjc.ac.in
 
 ---
-### Project Maintainers
+### Project Team
 
 - Daggubati Venkata Supraja
 - Mallika
 - Rajesh
 - Durgesh
 - Mumuksh
-- 
+  
 ---
 
 ### Reporting Issues

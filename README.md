@@ -1,4 +1,3 @@
-# SmartHealth_Infosys
 # SmartHealth - AI-Based Healthcare Platform
 
 
